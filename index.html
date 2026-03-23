@@ -156,26 +156,30 @@ body { font-family: var(--l); background: var(--bg); color: var(--black); overfl
 .diag-list span strong { color: var(--dark); font-weight: 700; }
 
 /* ── SLIDE 4 — FLYWHEEL ────────────────────────────────────────────── */
-/* Override global data-step translate for SVG elements */
+/* SVG data-step elements: opacity-only, no translate */
 svg [data-step]     { transform: none; }
 svg [data-step].vis { transform: none; }
-/* Segment active overlays: opacity-only transition */
-.seg-active {
-  opacity: 0;
-  transition: opacity 0.9s cubic-bezier(.22,1,.36,1);
-}
+.seg-active { opacity: 0; transition: opacity 0.9s cubic-bezier(.22,1,.36,1); }
 .seg-active.vis { opacity: 1; }
 
-.fw-layout { display: flex; gap: 28px; flex: 1; min-height: 0; align-items: flex-start; padding-top: 4px; }
-.fw-left   { flex-shrink: 0; width: 44%; display: flex; align-items: center; justify-content: center; align-self: center; }
-.fw-right  { flex: 1; display: flex; flex-direction: column; gap: 9px; min-height: 0; overflow: hidden; }
-.fw-panel  { background: var(--card); border-top: 3px solid var(--red); padding: 13px 15px 12px; display: flex; flex-direction: column; }
-.fw-panel-num   { font-family: var(--r); font-size: 10px; font-weight: 700; color: var(--red); letter-spacing: 1px; margin-bottom: 2px; }
-.fw-panel-title { font-family: var(--r); font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 6px; }
-.fw-panel-rule  { width: 100%; height: 1px; background: var(--border); margin-bottom: 6px; flex-shrink: 0; }
-.fw-panel-owner { font-family: var(--l); font-size: 9.5px; color: var(--muted); margin-bottom: 7px; flex-shrink: 0; }
+/* Layout */
+.fw-layout { display: flex; gap: 36px; flex: 1; min-height: 0; align-items: stretch; }
+.fw-left   { flex-shrink: 0; width: 46%; display: flex; align-items: center; justify-content: center; }
+.fw-right  { flex: 1; display: flex; flex-direction: column; gap: 7px; min-height: 0; overflow: hidden; justify-content: center; }
+
+/* Cards — stacks as each data-step fires; all stay on screen */
+.fw-panel { background: var(--card); border-top: 3px solid var(--red); padding: 10px 15px 10px; display: flex; flex-direction: column; flex-shrink: 0; }
+.fw-panel-num   { font-family: var(--r); font-size: 9px; font-weight: 700; color: var(--red); letter-spacing: 1px; margin-bottom: 2px; flex-shrink: 0; }
+.fw-panel-title { font-family: var(--r); font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 5px; line-height: 1.2; flex-shrink: 0; }
+.fw-panel-rule  { width: 100%; height: 1px; background: var(--border); margin-bottom: 5px; flex-shrink: 0; }
+.fw-panel-owner { font-family: var(--l); font-size: 9px; color: var(--muted); margin-bottom: 5px; flex-shrink: 0; }
 .fw-panel-owner strong { color: var(--dark); }
-.fw-return { display: flex; align-items: center; gap: 12px; padding: 6px 0 2px; flex-shrink: 0; }
+/* Tighter bullets inside fw-panels */
+.fw-panel .c-list li   { padding: 3px 0; }
+.fw-panel .c-list span { font-size: 11px; }
+
+/* Return line */
+.fw-return { display: flex; align-items: center; gap: 12px; flex-shrink: 0; margin-top: 2px; }
 .fw-return-line  { flex: 1; height: 1px; background: var(--border); }
 .fw-return-label { font-family: var(--l); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #C4BDB3; white-space: nowrap; }
 
@@ -221,6 +225,23 @@ svg [data-step].vis { transform: none; }
   <button class="sn-dot"        data-label="Tactics"   data-idx="4"></button>
   <button class="sn-dot"        data-label="The Goal"  data-idx="5"></button>
 </nav>
+
+<!-- ── PASSWORD GATE ──────────────────────────────────────────────── -->
+<div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#141210;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .7s ease;">
+  <div style="width:100%;max-width:360px;padding:0 28px;text-align:center;">
+    <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;color:#E8391A;text-transform:uppercase;margin-bottom:12px;">Abridge</div>
+    <div style="width:100%;height:1.5px;background:#E8391A;margin-bottom:28px;"></div>
+    <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F9F7F4;letter-spacing:-0.5px;margin-bottom:6px;">New Logo GTM Plan</div>
+    <div style="font-family:'Lato',sans-serif;font-size:11px;color:#6B6460;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:36px;">Confidential &amp; Proprietary · 2026</div>
+    <input id="pw-in" type="password" placeholder="Access code"
+      style="width:100%;padding:13px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#F9F7F4;font-family:'Lato',sans-serif;font-size:14px;outline:none;margin-bottom:10px;letter-spacing:.5px;transition:border-color .2s;"
+      autocomplete="current-password"/>
+    <button id="pw-btn"
+      style="width:100%;padding:13px;background:#E8391A;border:none;color:white;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;"
+    >Enter →</button>
+    <div id="pw-err" style="font-family:'Lato',sans-serif;font-size:11px;color:#E8391A;margin-top:12px;min-height:16px;"></div>
+  </div>
+</div>
 
 
 <!-- ═══════════════════════════════════════════════════════════════════
@@ -429,7 +450,7 @@ svg [data-step].vis { transform: none; }
           </svg>
         </div>
 
-        <!-- ── RIGHT CONTENT PANELS ── -->
+        <!-- ── RIGHT CONTENT PANELS — build up, all stay on screen ── -->
         <div class="fw-right">
 
           <div class="fw-panel" data-step="1">
@@ -441,7 +462,7 @@ svg [data-step].vis { transform: none; }
               <li><span class="arr">→</span><span>Reframe Abridge as the <strong>revenue generation engine</strong> inside a health system — not a documentation tool</span></li>
               <li><span class="arr">→</span><span>Publish proof-first content: <strong>Corewell wRVU study, Riverside HCC data, Duke 30x adoption</strong> story front and center</span></li>
               <li><span class="arr">→</span><span><strong>150+ health systems</strong> — category leadership and scale no competitor can match today</span></li>
-              <li><span class="arr">→</span><span>Make Abridge the <strong>obvious consideration</strong> before a buyer enters any formal sales process</span></li>
+              <li><span class="arr">→</span><span>Make Abridge the <strong>obvious consideration</strong> before a buyer ever enters a formal sales process</span></li>
             </ul>
           </div>
 
@@ -471,7 +492,7 @@ svg [data-step].vis { transform: none; }
             </ul>
           </div>
 
-          <div class="fw-return" data-step="3" style="transition-delay:.35s">
+          <div class="fw-return" data-step="3" style="transition-delay:.4s">
             <div class="fw-return-line"></div>
             <span class="fw-return-label">↺ &nbsp; Every new logo won fuels the next cycle</span>
             <div class="fw-return-line"></div>
@@ -654,8 +675,8 @@ svg [data-step].vis { transform: none; }
   }));
 
   function update() {
-    const scrollY  = window.scrollY;
-    const vh       = window.innerHeight;
+    const scrollY   = window.scrollY;
+    const vh        = window.innerHeight;
     const maxScroll = document.documentElement.scrollHeight - vh;
 
     // Progress bar
@@ -669,11 +690,11 @@ svg [data-step].vis { transform: none; }
     });
     dots.forEach((d, i) => d.classList.toggle('active', i === active));
 
-    // Reveal elements
+    // Reveal elements (data-step system)
     allSS.forEach(section => {
-      const top      = section.offsetTop;
-      const height   = section.offsetHeight;
-      const steps    = parseInt(section.dataset.steps || 1);
+      const top        = section.offsetTop;
+      const height     = section.offsetHeight;
+      const steps      = parseInt(section.dataset.steps || 1);
       const scrollable = Math.max(1, height - vh);
 
       if (scrollY + vh < top - vh || scrollY > top + height) return;
@@ -686,11 +707,46 @@ svg [data-step].vis { transform: none; }
         if (progress >= threshold) el.classList.add('vis');
       });
     });
+
   }
 
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
   update();
+})();
+
+// ── PASSWORD GATE ────────────────────────────────────────────────────
+(function(){
+  const PASS = 'NewLogo26'; // ← change this to whatever you want
+  const gate = document.getElementById('pw-gate');
+  const inp  = document.getElementById('pw-in');
+  const btn  = document.getElementById('pw-btn');
+  const err  = document.getElementById('pw-err');
+
+  // Skip gate if already authenticated this session
+  if (sessionStorage.getItem('abridge-gtm-auth') === '1') {
+    gate.style.display = 'none'; return;
+  }
+
+  function attempt() {
+    if (inp.value === PASS) {
+      sessionStorage.setItem('abridge-gtm-auth', '1');
+      gate.style.opacity = '0';
+      setTimeout(() => gate.style.display = 'none', 700);
+    } else {
+      err.textContent = 'Incorrect — try again.';
+      inp.value = '';
+      inp.style.borderColor = 'rgba(232,57,26,.6)';
+      inp.focus();
+      setTimeout(() => {
+        err.textContent = '';
+        inp.style.borderColor = 'rgba(255,255,255,.1)';
+      }, 2200);
+    }
+  }
+
+  btn.addEventListener('click', attempt);
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
 })();
 </script>
 </body>
