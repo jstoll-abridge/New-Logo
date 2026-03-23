@@ -83,6 +83,19 @@ body { font-family: var(--l); background: var(--bg); color: var(--black); overfl
 /* ── CARD GRID ─────────────────────────────────────────────────────── */
 .tcg { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; flex: 1; min-height: 0; }
 .card { background: var(--card); border-top: 3px solid var(--red); padding: 20px 20px 16px; display: flex; flex-direction: column; min-height: 0; }
+/* ── HEADLINES ── */
+.hl-label { font-family: 'Space Grotesk',sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--red); text-transform: uppercase; margin-bottom: 14px; opacity: 0; transition: opacity 0.5s ease; }
+.hl-label.vis { opacity: 1; }
+.hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.hl-item { background: #1C1A18; border-left: 2px solid #3A3530; padding: 12px 14px; opacity: 0; transform: translateY(10px); transition: opacity 0.5s cubic-bezier(.22,1,.36,1), transform 0.5s cubic-bezier(.22,1,.36,1); }
+.hl-grid.vis .hl-item { opacity: 1; transform: translateY(0); }
+.hl-grid.vis .hl-item:nth-child(1) { transition-delay: 0.05s; }
+.hl-grid.vis .hl-item:nth-child(2) { transition-delay: 0.20s; }
+.hl-grid.vis .hl-item:nth-child(3) { transition-delay: 0.35s; }
+.hl-grid.vis .hl-item:nth-child(4) { transition-delay: 0.50s; }
+.hl-pub  { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6560; margin-bottom: 5px; }
+.hl-hed  { font-family: 'Space Grotesk',sans-serif; font-size: 12.5px; font-weight: 600; color: #D4CEC6; line-height: 1.4; }
+.hl-date { font-size: 9px; color: #5A5550; margin-top: 6px; }
 
 .c-num  { font-family: var(--r); font-size: 40px; font-weight: 700; color: var(--red); line-height: 1; margin-bottom: 10px; flex-shrink: 0; }
 .c-tag  { font-family: var(--l); font-size: 8px; font-weight: 700; letter-spacing: 2.8px; text-transform: uppercase; color: var(--red); margin-bottom: 4px; flex-shrink: 0; }
@@ -252,7 +265,7 @@ svg [data-step].vis { transform: none; }
   <div class="geo geo-a"></div><div class="geo geo-b"></div><div class="geo geo-c"></div>
   <div class="geo geo-sq1"></div><div class="geo geo-sq2"></div><div class="geo geo-bar"></div>
   <div>
-    <div class="cov-wm">ABRIDGE</div>
+    <img src="https://www.healthevolution.com/wp-content/uploads/2024/03/Abridge-Logo-1.png" style="height:48px;display:block;margin-bottom:18px;filter:brightness(0) invert(1);opacity:0.95"/>
     <div class="cov-sub">New Logo GTM Plan — 2026</div>
   </div>
   <div class="cov-meta">
@@ -319,7 +332,7 @@ svg [data-step].vis { transform: none; }
      THE HEADWINDS  — 5 steps
      0 eyebrow+rule | 1 heading | 2 card01 | 3 card02 | 4 card03
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="ss" style="height:320vh" data-steps="5" data-section="2">
+<section class="ss" style="height:384vh" data-steps="6" data-section="2">
   <div class="sp">
     <div class="sc">
       <div class="ey"  data-step="0">The Headwinds</div>
@@ -370,6 +383,33 @@ svg [data-step].vis { transform: none; }
         </div>
 
       </div>
+
+      <!-- ── STEP 5: LIVE HEADLINES ── -->
+      <div class="hl-label" data-step="5">What the market is saying right now</div>
+      <div class="hl-grid" data-step="5">
+
+        <div class="hl-item">
+          <div class="hl-pub">STAT News &nbsp;·&nbsp; Feb 4, 2026</div>
+          <div class="hl-hed">"Epic Launches AI Charting, Potentially Scrambling the Ambient Scribe Market"</div>
+        </div>
+
+        <div class="hl-item">
+          <div class="hl-pub">MedCity News &nbsp;·&nbsp; Feb 2026</div>
+          <div class="hl-hed">"Do Ambient Scribe Startups Have a Future Now That Epic Launched Its Own Tool?"</div>
+        </div>
+
+        <div class="hl-item">
+          <div class="hl-pub">McKinsey &amp; Company &nbsp;·&nbsp; 2026</div>
+          <div class="hl-hed">"Ambient Scribing at a Crossroads: What Comes Next?"</div>
+        </div>
+
+        <div class="hl-item">
+          <div class="hl-pub">Healthcare IT News &nbsp;·&nbsp; 2026</div>
+          <div class="hl-hed">"Optum's Use of Ambient Scribe Saves Time, Improves Patient Satisfaction"</div>
+        </div>
+
+      </div>
+
     </div>
     <div class="bb"><span>Abridge</span><span>Confidential &amp; Proprietary &nbsp;&nbsp; 3</span></div>
   </div>
