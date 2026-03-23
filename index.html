@@ -216,6 +216,7 @@ svg [data-step].vis { transform: none; }
 <body>
 
 <div id="pgbar"></div>
+<img src="https://www.healthevolution.com/wp-content/uploads/2024/03/Abridge-Logo-1.png" alt="Abridge" style="position:fixed;top:18px;right:48px;height:22px;z-index:100;opacity:0.85;pointer-events:none;"/>
 
 <nav class="side-nav" id="sidenav">
   <button class="sn-dot active" data-label="Cover"     data-idx="0"></button>
@@ -229,7 +230,7 @@ svg [data-step].vis { transform: none; }
 <!-- ── PASSWORD GATE ──────────────────────────────────────────────── -->
 <div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#141210;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .7s ease;">
   <div style="width:100%;max-width:360px;padding:0 28px;text-align:center;">
-    <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;color:#E8391A;text-transform:uppercase;margin-bottom:12px;">Abridge</div>
+    <img src="https://www.healthevolution.com/wp-content/uploads/2024/03/Abridge-Logo-1.png" alt="Abridge" style="height:36px;margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;"/>
     <div style="width:100%;height:1.5px;background:#E8391A;margin-bottom:28px;"></div>
     <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F9F7F4;letter-spacing:-0.5px;margin-bottom:6px;">New Logo GTM Plan</div>
     <div style="font-family:'Lato',sans-serif;font-size:11px;color:#6B6460;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:36px;">Confidential &amp; Proprietary · 2026</div>
@@ -388,64 +389,58 @@ svg [data-step].vis { transform: none; }
 
       <div class="fw-layout">
 
-        <!-- ── SVG Flywheel (appears at step 0, segments light up 1→2→3) ── -->
+        <!-- ── SVG Flywheel — clean filled donut ── -->
         <div class="fw-left" data-step="0">
-          <svg viewBox="0 0 560 430" width="100%" style="max-height:54vh;display:block">
+          <svg viewBox="0 0 420 390" width="100%" style="max-height:56vh;display:block">
 
-            <!-- ── BASE SEGMENTS (always visible, neutral) ── -->
-            <!-- S1 Marketing: -88.5° → 28.5° (top-right arc) -->
-            <path d="M 283.88 67.05 A 148 148 0 0 1 410.07 285.62 L 352.06 254.13 A 82 82 0 0 0 282.15 133.03 Z" fill="#DDD8CF"/>
-            <!-- S2 Partnerships: 31.5° → 148.5° (bottom arc) -->
-            <path d="M 406.19 292.33 A 148 148 0 0 1 153.81 292.33 L 210.08 257.85 A 82 82 0 0 0 349.92 257.85 Z" fill="#DDD8CF"/>
-            <!-- S3 Field Sales: 151.5° → 268.5° (left arc) -->
-            <path d="M 149.94 285.62 A 148 148 0 0 1 276.13 67.05 L 278.55 133.03 A 82 82 0 0 0 207.94 254.13 Z" fill="#DDD8CF"/>
+            <!-- ── BASE SEGMENTS (neutral, always visible) ── -->
+            <!-- S1 Marketing: -85° → 25° (upper-right) -->
+            <path d="M 221.33 65.50 A 130 130 0 0 1 327.82 249.94 L 296.10 235.15 A 95 95 0 0 0 218.28 100.36 Z" fill="#DDD8CF"/>
+            <!-- S2 Partnerships: 35° → 145° (bottom) -->
+            <path d="M 316.49 269.57 A 130 130 0 0 1 103.51 269.57 L 132.18 249.49 A 95 95 0 0 0 287.82 249.49 Z" fill="#DDD8CF"/>
+            <!-- S3 Field Sales: 155° → 265° (left) -->
+            <path d="M 92.18 249.94 A 130 130 0 0 1 198.67 65.50 L 201.72 100.36 A 95 95 0 0 0 123.90 235.15 Z" fill="#DDD8CF"/>
 
-            <!-- ── ACTIVE OVERLAYS (fade in via data-step + .vis) ── -->
-            <path data-step="1" class="seg-active" d="M 283.88 67.05 A 148 148 0 0 1 410.07 285.62 L 352.06 254.13 A 82 82 0 0 0 282.15 133.03 Z" fill="#E8391A"/>
-            <path data-step="2" class="seg-active" d="M 406.19 292.33 A 148 148 0 0 1 153.81 292.33 L 210.08 257.85 A 82 82 0 0 0 349.92 257.85 Z" fill="#E8391A"/>
-            <path data-step="3" class="seg-active" d="M 149.94 285.62 A 148 148 0 0 1 276.13 67.05 L 278.55 133.03 A 82 82 0 0 0 207.94 254.13 Z" fill="#E8391A"/>
-
-            <!-- ── GAP DIRECTION MARKS (clockwise arrows at each gap) ── -->
-            <!-- Gap at 30° (between S1→S2): tangent points ~120° -->
-            <polygon points="408,283 413,293 402,291" fill="#F9F7F4" opacity="0.9"/>
-            <!-- Gap at 150° (between S2→S3): tangent points ~240° -->
-            <polygon points="152,278 150,290 141,282" fill="#F9F7F4" opacity="0.9"/>
-            <!-- Gap at 270° (between S3→S1): tangent points ~0° -->
-            <polygon points="274,63 286,63 280,74" fill="#F9F7F4" opacity="0.9"/>
+            <!-- ── ACTIVE OVERLAYS (red, fade in per step) ── -->
+            <path data-step="1" class="seg-active" d="M 221.33 65.50 A 130 130 0 0 1 327.82 249.94 L 296.10 235.15 A 95 95 0 0 0 218.28 100.36 Z" fill="#E8391A"/>
+            <path data-step="2" class="seg-active" d="M 316.49 269.57 A 130 130 0 0 1 103.51 269.57 L 132.18 249.49 A 95 95 0 0 0 287.82 249.49 Z" fill="#E8391A"/>
+            <path data-step="3" class="seg-active" d="M 92.18 249.94 A 130 130 0 0 1 198.67 65.50 L 201.72 100.36 A 95 95 0 0 0 123.90 235.15 Z" fill="#E8391A"/>
 
             <!-- ── HUB ── -->
-            <circle cx="280" cy="215" r="76" fill="#F9F7F4" stroke="#DDD8CF" stroke-width="1"/>
-            <circle cx="280" cy="215" r="69" fill="none" stroke="#DDD8CF" stroke-width="0.75" stroke-dasharray="3 5"/>
-            <!-- Spinning 3-dot indicator -->
-            <g>
-              <circle cx="280" cy="167" r="2.5" fill="#C4BDB3"/>
-              <circle cx="322" cy="239" r="2.5" fill="#C4BDB3"/>
-              <circle cx="238" cy="239" r="2.5" fill="#C4BDB3"/>
-              <animateTransform attributeName="transform" attributeType="XML"
-                type="rotate" from="0 280 215" to="360 280 215"
-                dur="9s" repeatCount="indefinite"/>
-            </g>
-            <!-- Center red dot -->
-            <circle cx="280" cy="215" r="5" fill="#E8391A"/>
+            <circle cx="210" cy="195" r="93" fill="#F9F7F4"/>
+            <circle cx="210" cy="195" r="87" fill="none" stroke="#E0DAD2" stroke-width="1" stroke-dasharray="3 4"/>
+            <circle cx="210" cy="195" r="3.5" fill="#E8391A"/>
 
-            <!-- ── SEGMENT LABELS (base — gray) ── -->
-            <!-- S1 at midpoint -30°, label radius ~115: (380, 157) -->
-            <text x="380" y="150" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="#C4BDB3">01</text>
-            <text x="380" y="163" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="#C4BDB3" letter-spacing="1.8">MARKETING</text>
-            <!-- S2 at midpoint 90°, label radius ~115: (280, 330) -->
-            <text x="280" y="320" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="#C4BDB3">02</text>
-            <text x="280" y="333" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="#C4BDB3" letter-spacing="1.8">PARTNERSHIPS</text>
-            <!-- S3 at midpoint 210°, label radius ~115: (180, 273) -->
-            <text x="180" y="264" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="#C4BDB3">03</text>
-            <text x="180" y="277" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="#C4BDB3" letter-spacing="1.8">FIELD SALES</text>
+            <!-- ── CONNECTOR LINES ── -->
+            <line x1="338" y1="121" x2="320" y2="132" stroke="#C4BDB3" stroke-width="1"/>
+            <line x1="210" y1="343" x2="210" y2="328" stroke="#C4BDB3" stroke-width="1"/>
+            <line x1="82" y1="121" x2="100" y2="132" stroke="#C4BDB3" stroke-width="1"/>
 
-            <!-- ── ACTIVE LABEL OVERLAYS (white text on red segment) ── -->
-            <text data-step="1" class="seg-active" x="380" y="150" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="white">01</text>
-            <text data-step="1" class="seg-active" x="380" y="163" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="white" letter-spacing="1.8">MARKETING</text>
-            <text data-step="2" class="seg-active" x="280" y="320" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="white">02</text>
-            <text data-step="2" class="seg-active" x="280" y="333" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="white" letter-spacing="1.8">PARTNERSHIPS</text>
-            <text data-step="3" class="seg-active" x="180" y="264" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="white">03</text>
-            <text data-step="3" class="seg-active" x="180" y="277" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="white" letter-spacing="1.8">FIELD SALES</text>
+            <!-- ── BADGES + LABELS — base (gray) ── -->
+            <circle cx="338" cy="121" r="13" fill="#C4BDB3"/>
+            <text x="338" y="125.5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="700" fill="white">01</text>
+            <text x="356" y="117" text-anchor="start" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="600" letter-spacing="0.5" fill="#A09890">MARKETING</text>
+
+            <circle cx="210" cy="343" r="13" fill="#C4BDB3"/>
+            <text x="210" y="347.5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="700" fill="white">02</text>
+            <text x="210" y="366" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="600" letter-spacing="0.5" fill="#A09890">PARTNERSHIPS</text>
+
+            <circle cx="82" cy="121" r="13" fill="#C4BDB3"/>
+            <text x="82" y="125.5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="700" fill="white">03</text>
+            <text x="64" y="117" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="600" letter-spacing="0.5" fill="#A09890">FIELD SALES</text>
+
+            <!-- ── BADGES + LABELS — active red overlays ── -->
+            <circle data-step="1" class="seg-active" cx="338" cy="121" r="13" fill="#E8391A"/>
+            <text data-step="1" class="seg-active" x="338" y="125.5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="700" fill="white">01</text>
+            <text data-step="1" class="seg-active" x="356" y="117" text-anchor="start" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="600" letter-spacing="0.5" fill="#E8391A">MARKETING</text>
+
+            <circle data-step="2" class="seg-active" cx="210" cy="343" r="13" fill="#E8391A"/>
+            <text data-step="2" class="seg-active" x="210" y="347.5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="700" fill="white">02</text>
+            <text data-step="2" class="seg-active" x="210" y="366" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="600" letter-spacing="0.5" fill="#E8391A">PARTNERSHIPS</text>
+
+            <circle data-step="3" class="seg-active" cx="82" cy="121" r="13" fill="#E8391A"/>
+            <text data-step="3" class="seg-active" x="82" y="125.5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="700" fill="white">03</text>
+            <text data-step="3" class="seg-active" x="64" y="117" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="600" letter-spacing="0.5" fill="#E8391A">FIELD SALES</text>
 
           </svg>
         </div>
