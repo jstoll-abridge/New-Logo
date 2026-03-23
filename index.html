@@ -156,13 +156,28 @@ body { font-family: var(--l); background: var(--bg); color: var(--black); overfl
 .diag-list span strong { color: var(--dark); font-weight: 700; }
 
 /* ── SLIDE 4 — FLYWHEEL ────────────────────────────────────────────── */
-.fw-wrap { display: grid; grid-template-columns: 1fr 44px 1fr 44px 1fr; flex: 1; min-height: 0; align-items: stretch; }
-.fw-arr  { display: flex; align-items: center; justify-content: center; }
-.fw-arr svg { flex-shrink: 0; }
-.fw-return { display: flex; align-items: center; gap: 12px; padding: 8px 0 2px; flex-shrink: 0; }
-.fw-line  { flex: 1; height: 1px; background: var(--border); position: relative; }
-.fw-line-l::before { content:'←'; position:absolute; left:-2px; top:-9px; font-size:13px; color:var(--border); }
-.fw-label { font-family: var(--l); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #C4BDB3; white-space: nowrap; }
+/* Override global data-step translate for SVG elements */
+svg [data-step]     { transform: none; }
+svg [data-step].vis { transform: none; }
+/* Segment active overlays: opacity-only transition */
+.seg-active {
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(.22,1,.36,1);
+}
+.seg-active.vis { opacity: 1; }
+
+.fw-layout { display: flex; gap: 28px; flex: 1; min-height: 0; align-items: flex-start; padding-top: 4px; }
+.fw-left   { flex-shrink: 0; width: 44%; display: flex; align-items: center; justify-content: center; align-self: center; }
+.fw-right  { flex: 1; display: flex; flex-direction: column; gap: 9px; min-height: 0; overflow: hidden; }
+.fw-panel  { background: var(--card); border-top: 3px solid var(--red); padding: 13px 15px 12px; display: flex; flex-direction: column; }
+.fw-panel-num   { font-family: var(--r); font-size: 10px; font-weight: 700; color: var(--red); letter-spacing: 1px; margin-bottom: 2px; }
+.fw-panel-title { font-family: var(--r); font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 6px; }
+.fw-panel-rule  { width: 100%; height: 1px; background: var(--border); margin-bottom: 6px; flex-shrink: 0; }
+.fw-panel-owner { font-family: var(--l); font-size: 9.5px; color: var(--muted); margin-bottom: 7px; flex-shrink: 0; }
+.fw-panel-owner strong { color: var(--dark); }
+.fw-return { display: flex; align-items: center; gap: 12px; padding: 6px 0 2px; flex-shrink: 0; }
+.fw-return-line  { flex: 1; height: 1px; background: var(--border); }
+.fw-return-label { font-family: var(--l); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #C4BDB3; white-space: nowrap; }
 
 /* ── SLIDE 5 — TACTICS ─────────────────────────────────────────────── */
 .tac-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; flex: 1; min-height: 0; }
@@ -340,78 +355,129 @@ body { font-family: var(--l); background: var(--bg); color: var(--black); overfl
 
 
 <!-- ═══════════════════════════════════════════════════════════════════
-     THE FLYWHEEL  — 6 steps
-     0 ey+rr | 1 h1 | 2 card01 | 3 arr+card02 | 4 arr+card03 | 5 return
+     THE FLYWHEEL  — 4 steps
+     0 ey+rr+svg | 1 h1+S1+Mktg panel | 2 S2+Partner panel | 3 S3+FS panel+return
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="ss" style="height:375vh" data-steps="6" data-section="3">
+<section class="ss" style="height:360vh" data-steps="4" data-section="3">
   <div class="sp">
     <div class="sc">
-      <div class="ey"  data-step="0">The Flywheel</div>
-      <div class="rr"  data-step="0"></div>
-      <div class="h1"  data-step="1">Three levers. One circular motion.</div>
+      <div class="ey" data-step="0">The Flywheel</div>
+      <div class="rr" data-step="0"></div>
+      <div class="h1" data-step="1">Three levers. One circular motion.</div>
 
-      <div class="fw-wrap">
+      <div class="fw-layout">
 
-        <div class="card" data-step="2">
-          <div class="c-num">01</div>
-          <div class="c-tag">Marketing</div>
-          <div class="c-owner">Owner: <strong>Guru + Marketing Team</strong></div>
-          <div class="c-title">Influence the Market</div>
-          <div class="c-rule"></div>
-          <ul class="c-list">
-            <li><span class="arr">→</span><span>Reframe Abridge as the <strong>revenue generation engine</strong> inside a health system — not a documentation tool</span></li>
-            <li><span class="arr">→</span><span>Publish proof-first content: <strong>Corewell wRVU study, Riverside HCC data, Duke 30x adoption</strong> story front and center</span></li>
-            <li><span class="arr">→</span><span><strong>150+ health systems</strong> — category leadership and scale that no competitor can claim or match today</span></li>
-            <li><span class="arr">→</span><span>Make Abridge the <strong>obvious consideration</strong> before a buyer ever enters a formal sales process</span></li>
-          </ul>
-        </div>
+        <!-- ── SVG Flywheel (appears at step 0, segments light up 1→2→3) ── -->
+        <div class="fw-left" data-step="0">
+          <svg viewBox="0 0 560 430" width="100%" style="max-height:54vh;display:block">
 
-        <div class="fw-arr" data-step="3">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#E8391A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="11" x2="17" y2="11"/><polyline points="11,5 17,11 11,17"/>
+            <!-- ── BASE SEGMENTS (always visible, neutral) ── -->
+            <!-- S1 Marketing: -88.5° → 28.5° (top-right arc) -->
+            <path d="M 283.88 67.05 A 148 148 0 0 1 410.07 285.62 L 352.06 254.13 A 82 82 0 0 0 282.15 133.03 Z" fill="#DDD8CF"/>
+            <!-- S2 Partnerships: 31.5° → 148.5° (bottom arc) -->
+            <path d="M 406.19 292.33 A 148 148 0 0 1 153.81 292.33 L 210.08 257.85 A 82 82 0 0 0 349.92 257.85 Z" fill="#DDD8CF"/>
+            <!-- S3 Field Sales: 151.5° → 268.5° (left arc) -->
+            <path d="M 149.94 285.62 A 148 148 0 0 1 276.13 67.05 L 278.55 133.03 A 82 82 0 0 0 207.94 254.13 Z" fill="#DDD8CF"/>
+
+            <!-- ── ACTIVE OVERLAYS (fade in via data-step + .vis) ── -->
+            <path data-step="1" class="seg-active" d="M 283.88 67.05 A 148 148 0 0 1 410.07 285.62 L 352.06 254.13 A 82 82 0 0 0 282.15 133.03 Z" fill="#E8391A"/>
+            <path data-step="2" class="seg-active" d="M 406.19 292.33 A 148 148 0 0 1 153.81 292.33 L 210.08 257.85 A 82 82 0 0 0 349.92 257.85 Z" fill="#E8391A"/>
+            <path data-step="3" class="seg-active" d="M 149.94 285.62 A 148 148 0 0 1 276.13 67.05 L 278.55 133.03 A 82 82 0 0 0 207.94 254.13 Z" fill="#E8391A"/>
+
+            <!-- ── GAP DIRECTION MARKS (clockwise arrows at each gap) ── -->
+            <!-- Gap at 30° (between S1→S2): tangent points ~120° -->
+            <polygon points="408,283 413,293 402,291" fill="#F9F7F4" opacity="0.9"/>
+            <!-- Gap at 150° (between S2→S3): tangent points ~240° -->
+            <polygon points="152,278 150,290 141,282" fill="#F9F7F4" opacity="0.9"/>
+            <!-- Gap at 270° (between S3→S1): tangent points ~0° -->
+            <polygon points="274,63 286,63 280,74" fill="#F9F7F4" opacity="0.9"/>
+
+            <!-- ── HUB ── -->
+            <circle cx="280" cy="215" r="76" fill="#F9F7F4" stroke="#DDD8CF" stroke-width="1"/>
+            <circle cx="280" cy="215" r="69" fill="none" stroke="#DDD8CF" stroke-width="0.75" stroke-dasharray="3 5"/>
+            <!-- Spinning 3-dot indicator -->
+            <g>
+              <circle cx="280" cy="167" r="2.5" fill="#C4BDB3"/>
+              <circle cx="322" cy="239" r="2.5" fill="#C4BDB3"/>
+              <circle cx="238" cy="239" r="2.5" fill="#C4BDB3"/>
+              <animateTransform attributeName="transform" attributeType="XML"
+                type="rotate" from="0 280 215" to="360 280 215"
+                dur="9s" repeatCount="indefinite"/>
+            </g>
+            <!-- Center red dot -->
+            <circle cx="280" cy="215" r="5" fill="#E8391A"/>
+
+            <!-- ── SEGMENT LABELS (base — gray) ── -->
+            <!-- S1 at midpoint -30°, label radius ~115: (380, 157) -->
+            <text x="380" y="150" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="#C4BDB3">01</text>
+            <text x="380" y="163" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="#C4BDB3" letter-spacing="1.8">MARKETING</text>
+            <!-- S2 at midpoint 90°, label radius ~115: (280, 330) -->
+            <text x="280" y="320" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="#C4BDB3">02</text>
+            <text x="280" y="333" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="#C4BDB3" letter-spacing="1.8">PARTNERSHIPS</text>
+            <!-- S3 at midpoint 210°, label radius ~115: (180, 273) -->
+            <text x="180" y="264" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="#C4BDB3">03</text>
+            <text x="180" y="277" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="#C4BDB3" letter-spacing="1.8">FIELD SALES</text>
+
+            <!-- ── ACTIVE LABEL OVERLAYS (white text on red segment) ── -->
+            <text data-step="1" class="seg-active" x="380" y="150" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="white">01</text>
+            <text data-step="1" class="seg-active" x="380" y="163" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="white" letter-spacing="1.8">MARKETING</text>
+            <text data-step="2" class="seg-active" x="280" y="320" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="white">02</text>
+            <text data-step="2" class="seg-active" x="280" y="333" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="white" letter-spacing="1.8">PARTNERSHIPS</text>
+            <text data-step="3" class="seg-active" x="180" y="264" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" fill="white">03</text>
+            <text data-step="3" class="seg-active" x="180" y="277" text-anchor="middle" font-family="'Lato',sans-serif" font-size="8.5" fill="white" letter-spacing="1.8">FIELD SALES</text>
+
           </svg>
         </div>
 
-        <div class="card" data-step="3">
-          <div class="c-num">02</div>
-          <div class="c-tag">Partnerships</div>
-          <div class="c-owner">Owner: <strong>Reba + Sarah Green / Partner Success</strong></div>
-          <div class="c-title">Customers &amp; Ecosystem</div>
-          <div class="c-rule"></div>
-          <ul class="c-list">
-            <li><span class="arr">→</span><span><strong>95%+ monthly retention</strong> means every customer is a credible, warm reference for prospects in their peer network</span></li>
-            <li><span class="arr">→</span><span>Activate named CMIOs: <strong>Dr. Shah (UChicago)</strong> and <strong>Dr. Carracino (Lee Health)</strong> as field-facing advocates</span></li>
-            <li><span class="arr">→</span><span>Champion-led <strong>peer intro calls</strong> into white space accounts convert 3× better than cold BDR outreach</span></li>
-            <li><span class="arr">→</span><span>Every expansion at an existing site becomes a <strong>case study and reference anchor</strong> for the next prospect segment</span></li>
-          </ul>
+        <!-- ── RIGHT CONTENT PANELS ── -->
+        <div class="fw-right">
+
+          <div class="fw-panel" data-step="1">
+            <div class="fw-panel-num">01 — MARKETING</div>
+            <div class="fw-panel-title">Influence the Market</div>
+            <div class="fw-panel-rule"></div>
+            <div class="fw-panel-owner">Owner: <strong>Guru + Marketing Team</strong></div>
+            <ul class="c-list">
+              <li><span class="arr">→</span><span>Reframe Abridge as the <strong>revenue generation engine</strong> inside a health system — not a documentation tool</span></li>
+              <li><span class="arr">→</span><span>Publish proof-first content: <strong>Corewell wRVU study, Riverside HCC data, Duke 30x adoption</strong> story front and center</span></li>
+              <li><span class="arr">→</span><span><strong>150+ health systems</strong> — category leadership and scale no competitor can match today</span></li>
+              <li><span class="arr">→</span><span>Make Abridge the <strong>obvious consideration</strong> before a buyer enters any formal sales process</span></li>
+            </ul>
+          </div>
+
+          <div class="fw-panel" data-step="2">
+            <div class="fw-panel-num">02 — PARTNERSHIPS</div>
+            <div class="fw-panel-title">Customers &amp; Ecosystem</div>
+            <div class="fw-panel-rule"></div>
+            <div class="fw-panel-owner">Owner: <strong>Reba + Sarah Green / Partner Success</strong></div>
+            <ul class="c-list">
+              <li><span class="arr">→</span><span><strong>95%+ monthly retention</strong> turns every customer into a warm, credible reference in their peer network</span></li>
+              <li><span class="arr">→</span><span>Activate named CMIOs — <strong>Dr. Shah (UChicago), Dr. Carracino (Lee Health)</strong> — as field-facing advocates</span></li>
+              <li><span class="arr">→</span><span>Champion-led <strong>peer intro calls</strong> convert 3× better than cold BDR outreach into white space accounts</span></li>
+              <li><span class="arr">→</span><span>Every expansion becomes a <strong>case study and reference anchor</strong> for the next prospect segment</span></li>
+            </ul>
+          </div>
+
+          <div class="fw-panel" data-step="3">
+            <div class="fw-panel-num">03 — FIELD SALES</div>
+            <div class="fw-panel-title">Win in the Field</div>
+            <div class="fw-panel-rule"></div>
+            <div class="fw-panel-owner">Owner: <strong>Amir + Enterprise Sales + BDR Army</strong></div>
+            <ul class="c-list">
+              <li><span class="arr">→</span><span>Lead every deal with the <strong>CFO conversation</strong> — ROI model in hand at first executive meeting, not after</span></li>
+              <li><span class="arr">→</span><span><strong>One BDR per segment</strong> (Strategic, Enterprise, National) embedded in territory, owning Abridge 300 outreach</span></li>
+              <li><span class="arr">→</span><span>Every Abridge 300 account requires an <strong>active Salesforce opportunity</strong> with a defined next step — no exceptions</span></li>
+              <li><span class="arr">→</span><span><strong>New Logo Thursday</strong> cadence: weekly review, rep-level accountability, no dead opportunities survive the week</span></li>
+            </ul>
+          </div>
+
+          <div class="fw-return" data-step="3" style="transition-delay:.35s">
+            <div class="fw-return-line"></div>
+            <span class="fw-return-label">↺ &nbsp; Every new logo won fuels the next cycle</span>
+            <div class="fw-return-line"></div>
+          </div>
+
         </div>
-
-        <div class="fw-arr" data-step="4">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#E8391A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="11" x2="17" y2="11"/><polyline points="11,5 17,11 11,17"/>
-          </svg>
-        </div>
-
-        <div class="card" data-step="4">
-          <div class="c-num">03</div>
-          <div class="c-tag">Field Sales</div>
-          <div class="c-owner">Owner: <strong>Amir + Enterprise Sales + BDR Army</strong></div>
-          <div class="c-title">Win in the Field</div>
-          <div class="c-rule"></div>
-          <ul class="c-list">
-            <li><span class="arr">→</span><span>Lead every deal with the <strong>CFO conversation</strong> — ROI model in hand at first executive meeting, not after</span></li>
-            <li><span class="arr">→</span><span><strong>One BDR per segment</strong> (Strategic, Enterprise, National) embedded in territory, owning Abridge 300 outreach</span></li>
-            <li><span class="arr">→</span><span>Every Abridge 300 white space account requires an <strong>active Salesforce opportunity</strong> with a defined next step — no exceptions</span></li>
-            <li><span class="arr">→</span><span><strong>New Logo Thursday</strong> cadence: weekly pipeline review, rep-level accountability, no dead opportunities survive the week</span></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="fw-return" data-step="5">
-        <div class="fw-line fw-line-l"></div>
-        <span class="fw-label">↺ &nbsp; Every new logo won fuels the next cycle</span>
-        <div class="fw-line"></div>
       </div>
     </div>
     <div class="bb"><span>Abridge</span><span>Confidential &amp; Proprietary &nbsp;&nbsp; 4</span></div>
