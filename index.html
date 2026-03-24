@@ -126,12 +126,12 @@ body { font-family: var(--l); background: var(--bg); color: var(--black); overfl
 /* ── COVER ─────────────────────────────────────────────────────────── */
 .s-cover {
   height: 100vh; background: var(--red);
-  display: flex; flex-direction: column; justify-content: space-between;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
   padding: 52px 60px 48px; overflow: hidden; position: relative;
 }
 .cov-wm   { font-family: var(--r); font-size: clamp(60px,10.5vw,120px); font-weight: 700; letter-spacing: -4px; line-height: .90; color: var(--white); position: relative; z-index: 2; }
 .cov-sub  { font-family: var(--r); font-size: clamp(16px,2.4vw,30px); font-weight: 400; color: rgba(255,255,255,.88); margin-top: 22px; line-height: 1.35; max-width: 520px; position: relative; z-index: 2; }
-.cov-meta { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 2; }
+.cov-meta { display: flex; align-items: center; justify-content: space-between; position: absolute; bottom: 48px; left: 60px; right: 60px; z-index: 2; }
 .cov-date { font-family: var(--l); font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.45); }
 .cov-scroll { font-family: var(--l); font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.40); display: flex; align-items: center; gap: 8px; }
 .cov-scroll svg { animation: bobble 1.6s ease-in-out infinite; }
@@ -147,21 +147,21 @@ body { font-family: var(--l); background: var(--bg); color: var(--black); overfl
 .geo-bar { right:52px;top:0;width:36px;height:48%;background:rgba(255,255,255,.06); }
 
 /* ── SLIDE 2 — PROBLEM ─────────────────────────────────────────────── */
-.stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-bottom: 20px; flex-shrink: 0; }
+.stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-bottom: 12px; flex-shrink: 0; }
 .stat-blk { padding-right: 28px; border-right: 1px solid var(--border); margin-right: 28px; }
 .stat-blk:last-child { border-right: none; padding-right: 0; margin-right: 0; }
 .sv   { font-family: var(--r); font-weight: 700; color: var(--red); line-height: 1; letter-spacing: -2px; }
-.sv-lg { font-size: clamp(42px,7.5vw,80px); }
-.sv-md { font-size: clamp(28px,5vw,56px); }
+.sv-lg { font-size: clamp(34px,5.5vw,62px); }
+.sv-md { font-size: clamp(22px,3.8vw,46px); }
 .sl   { font-family: var(--l); font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
 .sl .src { display: block; margin-top: 3px; font-size: 10px; letter-spacing: 1px; color: #C4BDB3; }
 
-.ctx   { background: var(--card); border-left: 3px solid var(--red); padding: 14px 20px; flex-shrink: 0; margin-bottom: 14px; }
-.ctx p { font-family: var(--l); font-size: 13px; color: var(--dark); line-height: 1.7; }
+.ctx   { background: var(--card); border-left: 3px solid var(--red); padding: 9px 16px; flex-shrink: 0; margin-bottom: 10px; }
+.ctx p { font-family: var(--l); font-size: 12px; color: var(--dark); line-height: 1.6; }
 .ctx strong { color: var(--black); font-weight: 700; }
 
 .diag { flex-shrink: 0; }
-.diag-head { font-family: var(--l); font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.diag-head { font-family: var(--l); font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
 .diag-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
 .diag-list li { display: flex; gap: 9px; align-items: flex-start; padding: 7px 0; border-bottom: 1px solid var(--border); }
 .diag-list li:nth-last-child(-n+2) { border-bottom: none; }
@@ -198,16 +198,18 @@ svg [data-step].vis { transform: none; }
 
 /* ── SLIDE 5 — TACTICS ─────────────────────────────────────────────── */
 .tac-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; flex: 1; min-height: 0; }
-.tc { background: var(--card); border-top: 3px solid var(--red); padding: 15px 17px 13px; display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
-.tc-num   { font-family: var(--r); font-size: 11px; font-weight: 700; color: var(--red); letter-spacing: 1px; margin-bottom: 4px; flex-shrink: 0; }
-.tc-title { font-family: var(--r); font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 7px; line-height: 1.2; flex-shrink: 0; }
-.tc-rule  { width: 100%; height: 1px; background: var(--border); margin-bottom: 7px; flex-shrink: 0; }
+.tc { background: var(--card); border-top: 3px solid var(--red); padding: 16px 18px 14px; display: flex; flex-direction: column; min-height: 0; overflow: hidden; position: relative; }
+.tc-num   { font-family: var(--r); font-size: 10px; font-weight: 700; color: var(--red); letter-spacing: 2px; margin-bottom: 5px; flex-shrink: 0; }
+.tc-title { font-family: var(--r); font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 5px; line-height: 1.2; flex-shrink: 0; }
+.tc-tag   { font-family: var(--l); font-size: 11.5px; font-weight: 600; color: var(--dark); margin-bottom: 9px; line-height: 1.45; flex-shrink: 0; }
+.tc-rule  { width: 100%; height: 1px; background: var(--border); margin-bottom: 9px; flex-shrink: 0; }
 .tc-list  { list-style: none; padding: 0; margin: 0; flex: 1; overflow: hidden; }
-.tc-list li { display: flex; gap: 7px; padding: 4px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+.tc-list li { display: flex; gap: 8px; padding: 5px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
 .tc-list li:last-child { border-bottom: none; }
-.tc-arr  { color: var(--red); font-size: 10px; flex-shrink: 0; margin-top: 2px; }
-.tc-lbl  { font-family: var(--l); font-size: 11px; color: var(--muted); line-height: 1.5; }
+.tc-arr  { color: var(--red); font-size: 10px; flex-shrink: 0; margin-top: 3px; }
+.tc-lbl  { font-family: var(--l); font-size: 11.5px; color: var(--muted); line-height: 1.55; }
 .tc-lbl strong { color: var(--dark); font-weight: 700; }
+.disc-bar { font-family: var(--r); font-size: 9.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); text-align: center; padding-top: 10px; border-top: 1px solid var(--border); margin-top: 8px; flex-shrink: 0; }
 
 /* ── SLIDE 6 — GOAL ────────────────────────────────────────────────── */
 .goal-h  { font-family: var(--r); font-size: clamp(22px,3.8vw,48px); font-weight: 700; line-height: 1.04; letter-spacing: -1px; text-transform: uppercase; color: var(--black); margin-bottom: 20px; flex-shrink: 0; }
@@ -224,6 +226,8 @@ svg [data-step].vis { transform: none; }
 .es-t    { font-family: var(--r); font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 3px; }
 .es-b    { font-family: var(--l); font-size: 11px; color: var(--muted); line-height: 1.6; }
 .proof-bar { background: var(--red); color: var(--white); padding: 11px 56px; font-family: var(--l); font-size: 12px; font-style: italic; letter-spacing: .4px; flex-shrink: 0; margin: 0 -56px -16px; }
+.flow-wrap  { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); flex-shrink: 0; }
+.flow-lbl   { font-family: var(--r); font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
 </style>
 </head>
 <body>
@@ -283,44 +287,142 @@ svg [data-step].vis { transform: none; }
      THE PROBLEM  — 5 steps
      0 eyebrow+rule | 1 heading | 2 stats | 3 context | 4 diagnosis
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="ss" style="height:320vh" data-steps="5" data-section="1">
+<section class="ss" style="height:360vh" data-steps="5" data-section="1">
   <div class="sp">
     <div class="sc">
       <div class="ey"       data-step="0">The Problem</div>
       <div class="rr"       data-step="0"></div>
-      <div class="h1"       data-step="1">New logo pipeline<br>is in decline.</div>
+      <div class="h1"       data-step="1">Win rate is in freefall.<br>The top of funnel is blocked.</div>
 
       <div class="stat-row" data-step="2">
         <div class="stat-blk">
-          <div class="sv sv-md">~10 → ~3</div>
-          <div class="sl">New logos per year — peak run rate vs. today
-            <span class="src">Source: Salesforce historical data</span>
+          <div class="sv sv-md">39% → 26%</div>
+          <div class="sl">A300 win rate — Q3 to Q4 2025, one quarter of acceleration
+            <span class="src">Source: Q4-25 Closed Lost Report</span>
           </div>
         </div>
         <div class="stat-blk">
-          <div class="sv sv-lg">460</div>
-          <div class="sl">Abridge 300 contacts with zero outreach logged in Salesforce</div>
+          <div class="sv sv-lg">50%</div>
+          <div class="sl">Of initial A300 opps already had an incumbent in place in Q4 — we're starting from behind
+            <span class="src">Source: Q4-25 Closed Lost Report</span>
+          </div>
         </div>
         <div class="stat-blk">
-          <div class="sv sv-lg">$0</div>
-          <div class="sl">New logo ACV closed in Q1 2026
-            <span class="src">Source: Salesforce Q1 close report</span>
+          <div class="sv sv-md">38 of 54</div>
+          <div class="sl">Competitive losses in FY25 went to Microsoft DAX — 70% of every deal we lost
+            <span class="src">Source: Q4-25 Closed Lost Report</span>
           </div>
         </div>
       </div>
 
       <div class="ctx" data-step="3">
-        <p>Our existing base is strong — <strong>95%+ monthly retention, 150+ health systems, $500K–$1M in avoided physician turnover per departure at live sites</strong>. But the new logo engine has stalled. The Abridge 300 is a list, not a pipeline. <strong>We have the proof. We need the motion.</strong></p>
+        <p>Pilot conversion is strong at <strong>86%</strong> — the product wins when it gets in the room. The crisis is upstream.</p>
+        <p style="margin-top:5px;"><strong>Only 1 of 12 A300 incumbency opps moved to pilot in Q4.</strong> "Existing relationship too strong" and "do nothing" account for 57% of FY25 losses. We are not losing on product. We are losing before the conversation starts.</p>
       </div>
 
       <div class="diag" data-step="4">
-        <div class="diag-head">What's broken today</div>
-        <ul class="diag-list">
-          <li><span class="arr">→</span><span><strong>No dedicated BDR coverage</strong> against the Abridge 300 — outreach is ad-hoc and untracked</span></li>
-          <li><span class="arr">→</span><span><strong>460 unworked contacts</strong> in Salesforce — no sequence, no owner, no urgency</span></li>
-          <li><span class="arr">→</span><span><strong>No new logo cadence</strong> — New Logo Thursday doesn't exist yet as a structured motion</span></li>
-          <li><span class="arr">→</span><span><strong>Messaging hasn't evolved</strong> — leading with documentation burnout when CFOs are now the buyer</span></li>
-        </ul>
+        <div class="diag-head">A300 win rates — FY25 trend &nbsp;<span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:10px;color:#8A837C">Source: Q4-25 Closed Lost Report</span></div>
+
+        <div style="display:flex;gap:24px;margin-top:10px;align-items:flex-end;">
+
+          <!-- Chart 1: Overall Initial Win Rate Trend -->
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8A837C;margin-bottom:5px;text-align:right;">Initial Opp Win Rate</div>
+            <svg viewBox="0 0 260 148" width="100%" style="display:block;max-height:29vh">
+              <!-- Grid -->
+              <line x1="32" y1="12" x2="255" y2="12" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
+              <line x1="32" y1="40" x2="255" y2="40" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
+              <line x1="32" y1="68" x2="255" y2="68" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
+              <line x1="32" y1="96" x2="255" y2="96" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
+              <line x1="32" y1="124" x2="255" y2="124" stroke="#C4BDB3" stroke-width="1"/>
+              <!-- Y labels -->
+              <text x="28" y="15" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#A09890">100%</text>
+              <text x="28" y="43" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#A09890">75%</text>
+              <text x="28" y="71" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#A09890">50%</text>
+              <text x="28" y="99" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#A09890">25%</text>
+              <!-- Bars: bottom=124, scale 112px=100% -->
+              <!-- Q1 76%: h=85, y=39 -->
+              <rect x="42" y="39" width="40" height="85" rx="2" fill="#C4BDB3"/>
+              <text x="62" y="35" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="9" font-weight="700" fill="#8A837C">76%</text>
+              <text x="62" y="137" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#8A837C">Q1'25</text>
+              <!-- Q2 48%: h=54, y=70 -->
+              <rect x="96" y="70" width="40" height="54" rx="2" fill="#B5ADA5"/>
+              <text x="116" y="66" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="9" font-weight="700" fill="#8A837C">48%</text>
+              <text x="116" y="137" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#8A837C">Q2'25</text>
+              <!-- Q3 39%: h=44, y=80 -->
+              <rect x="150" y="80" width="40" height="44" rx="2" fill="#A09888"/>
+              <text x="170" y="76" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="9" font-weight="700" fill="#8A837C">39%</text>
+              <text x="170" y="137" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#8A837C">Q3'25</text>
+              <!-- Q4 26%: h=29, y=95 — RED -->
+              <rect x="204" y="95" width="40" height="29" rx="2" fill="#E8391A"/>
+              <text x="224" y="91" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="9" font-weight="700" fill="#E8391A">26%</text>
+              <text x="224" y="137" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#E8391A">Q4'25</text>
+              <!-- Trend line -->
+              <polyline points="62,39 116,70 170,80 224,95" fill="none" stroke="#E8391A" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.45"/>
+            </svg>
+          </div>
+
+          <!-- Chart 2: Incumbent vs Greenfield Win Rate -->
+          <div style="flex:1.3;min-width:0;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8A837C;margin-bottom:5px;text-align:right;">Win Rate by Competition Status</div>
+            <svg viewBox="0 0 310 160" width="100%" style="display:block;max-height:29vh">
+              <!-- Grid -->
+              <line x1="32" y1="12" x2="305" y2="12" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
+              <line x1="32" y1="40" x2="305" y2="40" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
+              <line x1="32" y1="68" x2="305" y2="68" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
+              <line x1="32" y1="96" x2="305" y2="96" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
+              <line x1="32" y1="124" x2="305" y2="124" stroke="#C4BDB3" stroke-width="1"/>
+              <!-- Y labels -->
+              <text x="28" y="15" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#A09890">100%</text>
+              <text x="28" y="43" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#A09890">75%</text>
+              <text x="28" y="71" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#A09890">50%</text>
+              <text x="28" y="99" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#A09890">25%</text>
+              <!-- Groups: Q1@42, Q2@110, Q3@178, Q4@246. Bar w=24, gap=6 within group -->
+              <!-- Incumbent (red left bar) | Greenfield (teal right bar) -->
+              <!-- Scale: 112px=100% -->
+
+              <!-- Q1: Inc 63%→71px y=53 | Greenfield 85%→95px y=29 -->
+              <rect x="42"  y="53" width="24" height="71" rx="1" fill="#E8391A" opacity="0.5"/>
+              <text x="54"  y="49" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" fill="#C4391A">63%</text>
+              <rect x="70"  y="29" width="24" height="95" rx="1" fill="#A09890" opacity="0.7"/>
+              <text x="82"  y="25" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" fill="#7A7370">85%</text>
+              <text x="68"  y="137" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#8A837C">Q1'25</text>
+
+              <!-- Q2: Inc 25%→28px y=96 | Greenfield 53%→59px y=65 -->
+              <rect x="110" y="96" width="24" height="28" rx="1" fill="#E8391A" opacity="0.5"/>
+              <text x="122" y="92" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" fill="#C4391A">25%</text>
+              <rect x="138" y="65" width="24" height="59" rx="1" fill="#A09890" opacity="0.7"/>
+              <text x="150" y="61" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" fill="#7A7370">53%</text>
+              <text x="136" y="137" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#8A837C">Q2'25</text>
+
+              <!-- Q3: Inc 17%→19px y=105 | Greenfield 60%→67px y=57 -->
+              <rect x="178" y="105" width="24" height="19" rx="1" fill="#E8391A" opacity="0.5"/>
+              <text x="190" y="101" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" fill="#C4391A">17%</text>
+              <rect x="206" y="57"  width="24" height="67" rx="1" fill="#A09890" opacity="0.7"/>
+              <text x="218" y="53"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" fill="#7A7370">60%</text>
+              <text x="204" y="137" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#8A837C">Q3'25</text>
+
+              <!-- Q4: Inc 8%→9px y=115 RED | Greenfield 57%→64px y=60 -->
+              <rect x="246" y="115" width="24" height="9"  rx="1" fill="#E8391A"/>
+              <text x="258" y="111" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="9" font-weight="700" fill="#E8391A">8%</text>
+              <rect x="274" y="60"  width="24" height="64" rx="1" fill="#A09890" opacity="0.9"/>
+              <text x="286" y="56"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="9" font-weight="700" fill="#7A7370">57%</text>
+              <text x="272" y="137" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#E8391A">Q4'25</text>
+
+              <!-- Legend — centered at x=155 -->
+              <rect x="82"  y="144" width="9" height="5" rx="1" fill="#E8391A" opacity="0.8"/>
+              <text x="95"  y="149" font-family="'Space Grotesk',sans-serif" font-size="7.5" fill="#8A837C">Incumbent</text>
+              <rect x="163" y="144" width="9" height="5" rx="1" fill="#A09890" opacity="0.8"/>
+              <text x="176" y="149" font-family="'Space Grotesk',sans-serif" font-size="7.5" fill="#8A837C">Greenfield</text>
+            </svg>
+          </div>
+
+        </div>
+
+        <!-- Compounding callout -->
+        <div style="margin-top:9px;padding:8px 14px;background:#1C1A18;border-left:2px solid #E8391A;font-family:'Lato',sans-serif;font-size:11px;color:#C4BDB3;line-height:1.5;">
+          <strong style="color:#E8391A;font-family:'Space Grotesk',sans-serif;">The compounding problem:</strong> Incumbent share of A300 pipeline grew <strong>36% → 50%</strong> in one year. We're getting worse at beating incumbents <em>and</em> incumbents now make up half the pipeline.
+        </div>
       </div>
     </div>
     <div class="bb"><span>Abridge</span><span>Confidential &amp; Proprietary &nbsp;&nbsp; 2</span></div>
@@ -549,84 +651,85 @@ svg [data-step].vis { transform: none; }
 <section class="ss" style="height:265vh" data-steps="4" data-section="4">
   <div class="sp">
     <div class="sc" style="padding-bottom:12px">
-      <div class="ey"  data-step="0">Six GTM Tactics</div>
+      <div class="ey"  data-step="0">Commercial Playbook — 2026</div>
       <div class="rr"  data-step="0"></div>
-      <div class="h1"  data-step="1" style="font-size:clamp(16px,2.3vw,28px);margin-bottom:14px;">Industry-tested plays for displacing incumbents in healthcare enterprise</div>
+      <div class="h1"  data-step="1" style="font-size:clamp(16px,2.3vw,28px);margin-bottom:14px;">Six plays to retool how we sell.<br>What do we commit to — and in what order?</div>
       <div class="tac-grid">
 
         <div class="tc" data-step="2">
           <div class="tc-num">01</div>
-          <div class="tc-title">CFO Economic Wedge</div>
+          <div class="tc-title">Finance-First Entry</div>
+          <div class="tc-tag">Stop entering through IT. Revenue Cycle and CDI are the new front door.</div>
           <div class="tc-rule"></div>
           <ul class="tc-list">
-            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>11–14% wRVU increase</strong> validated at Corewell Health — physician capacity converted to direct revenue</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>14% HCC capture improvement</strong> at Riverside Health — risk-adjusted revenue at system scale</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>$500K–$1M avoided physician turnover</strong> per departure — retention is now a financial argument</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">Pre-build the ROI model; put proof in the champion's hands <strong>before the first executive meeting</strong></span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Lead every executive conversation with a <strong>pre-built ROI model</strong> tied to their specific payer mix and volume</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Position Abridge as a <strong>revenue integrity play</strong> — the CFO must be in the room at meeting one, not after</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">A durable revenue cycle offer: <strong>real-time risk adjustment gap closure, stronger MA documentation, and reduced prior auth burden</strong> at the point of care</span></li>
           </ul>
         </div>
 
         <div class="tc" data-step="2" style="transition-delay:.1s">
           <div class="tc-num">02</div>
           <div class="tc-title">Service-Line Beachhead</div>
+          <div class="tc-tag">Win a region, site, or facility. Earn the enterprise. Avoid the nonstarter full enterprise sales cycle.</div>
           <div class="tc-rule"></div>
           <ul class="tc-list">
-            <li><span class="tc-arr">→</span><span class="tc-lbl">Target <strong>dissatisfied sub-units</strong>: CDI team, nursing floor, or Meditech-based facility within a larger system</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">30–90 day pilot with <strong>defined success criteria</strong> agreed before the pilot starts — not after</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">One internal win becomes the <strong>enterprise reference and expansion wedge</strong> into the broader health system</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">Particularly effective in <strong>multi-EHR environments</strong> where Epic doesn't control the full workflow</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Target the <strong>dissatisfied sub-unit</strong> — a floor, specialty, or different EMR facility where the incumbent is underperforming</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>Lock success criteria before the pilot starts</strong> — scope, metrics, and exec sponsor agreed at kickoff, not after</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">One internal win becomes the <strong>enterprise proof point and expansion wedge</strong> into the broader system</span></li>
           </ul>
         </div>
 
         <div class="tc" data-step="2" style="transition-delay:.2s">
           <div class="tc-num">03</div>
-          <div class="tc-title">Competitive Conquesting ABM</div>
+          <div class="tc-title">Intelligence-Led ABM</div>
+          <div class="tc-tag">Trigger-driven, not spray-and-pray. Hit the right account at the right moment.</div>
           <div class="tc-rule"></div>
           <ul class="tc-list">
-            <li><span class="tc-arr">→</span><span class="tc-lbl">All <strong>460 unworked Abridge 300 contacts</strong> receive trigger-based, persona-specific outreach — starting now</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">AI-drafted sequence, BDR-personalized, sent within <strong>24 hours of a trigger event</strong> (funding, leadership change, RFP)</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">Every contact, every touch, every response <strong>logged and owned in Salesforce</strong> — no orphaned activity</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">Sequences tailored by persona: <strong>CMIO, CFO, CNO, CDI Director</strong> — different proof points for each</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Track <strong>CMIO/CMO job changes</strong> and <strong>MSFT contract renewal windows</strong> — engage 9–12 months before they re-sign</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Persona-sequenced outreach: <strong>CMIO gets peer evidence, CFO gets ROI, CNO gets workflow proof</strong> — never one message to all</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Every trigger, touch, and response <strong>logged and owned in Salesforce</strong> — intelligence is useless if it's not actioned</span></li>
           </ul>
         </div>
 
         <div class="tc" data-step="3">
           <div class="tc-num">04</div>
           <div class="tc-title">Dedicated BDR Coverage</div>
+          <div class="tc-tag">Separate prospectors from account management. One BDR per segment.</div>
           <div class="tc-rule"></div>
           <ul class="tc-list">
-            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>One BDR per segment</strong>: Strategic, Enterprise, and National — embedded in territory, not shared</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">BDRs own 100% of <strong>Abridge 300 outreach</strong> — field AEs are closers only, no cold prospecting</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">Clear handoff criteria and <strong>shared Salesforce pipeline visibility</strong> between BDR and AE at all times</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">BDR KPIs tied directly to <strong>qualified meetings set</strong> within the Abridge 300 list — nothing outside it counts</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>One BDR per segment</strong> — Strategic, Enterprise, National — embedded in territory, not pooled</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">BDRs <strong>100% dedicated</strong> to Abridge 300 prospecting — AEs are support closers only</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">BDR KPIs: <strong>qualified meetings set within the 300 list</strong>, pilots kicked off incentivized, anchored by a dedicated <strong>Pipeline Day</strong> — one day per week reserved exclusively for prospecting and intentional opportunity creation</span></li>
           </ul>
         </div>
 
         <div class="tc" data-step="3" style="transition-delay:.1s">
           <div class="tc-num">05</div>
           <div class="tc-title">Clinician Champion Network</div>
+          <div class="tc-tag">One peer call opens more doors than ten cold calls. Deploy the installed base.</div>
           <div class="tc-rule"></div>
           <ul class="tc-list">
-            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>Dr. Shah (UChicago CMIO)</strong> and <strong>Dr. Carracino (Lee Health CMIO)</strong> as named, activated field advocates</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">Champion-led <strong>peer intro calls</strong> into white space health systems — clinical credibility opens doors cold outreach can't</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">95%+ retention means the <strong>installed base is our best sales team</strong> — we just need to deploy them</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">Map every white space account to a <strong>nearby reference site</strong> — build the peer geography into the pitch</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Activate CMIOs at installed accounts as <strong>peer-to-peer openers</strong> into white space targets</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Map every white space account to a <strong>nearby reference site</strong> — peer geography is built into the pitch, not an afterthought</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Published clinician voices — case studies, conference abstracts — work as <strong>always-on demand gen</strong> between rep touches</span></li>
           </ul>
         </div>
 
         <div class="tc" data-step="3" style="transition-delay:.2s">
           <div class="tc-num">06</div>
           <div class="tc-title">Prescriptive Opportunity Pipeline</div>
+          <div class="tc-tag">No opp, no coverage. Pipeline discipline is a team standard, not rep choice.</div>
           <div class="tc-rule"></div>
           <ul class="tc-list">
             <li><span class="tc-arr">→</span><span class="tc-lbl">Every Abridge 300 white space account = <strong>mandatory active Salesforce opportunity</strong> by end of Q2</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>New Logo Thursday</strong>: weekly pipeline review cadence — every open opportunity reviewed, every stuck deal unblocked</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">No opportunity = no coverage. <strong>Manager-enforced rep accountability</strong> — not optional hygiene</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">Pipeline stage definitions tightened: <strong>every stage requires a documented next step</strong> and a date to close or move</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>New Logo Thursday</strong>: weekly cadence — every open opp reviewed, every stuck deal unblocked that same week</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Every stage requires a <strong>documented next step and committed date</strong> — manager-enforced, not optional hygiene</span></li>
           </ul>
         </div>
 
       </div>
+      <div class="disc-bar" data-step="3">Discussion &nbsp;·&nbsp; Which plays do we resource first? &nbsp;·&nbsp; What's the sequencing? &nbsp;·&nbsp; Who owns each motion?</div>
     </div>
     <div class="bb"><span>Abridge</span><span>Confidential &amp; Proprietary &nbsp;&nbsp; 5</span></div>
   </div>
@@ -637,7 +740,7 @@ svg [data-step].vis { transform: none; }
      THE GOAL  — 5 steps
      0 ey+rr | 1 h1 | 2 math col | 3 end state col | 4 proof bar
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="ss" style="height:320vh" data-steps="5" data-section="5">
+<section class="ss" style="height:390vh" data-steps="6" data-section="5">
   <div class="sp">
     <div class="sc" style="padding-bottom:0">
       <div class="ey"     data-step="0">The Goal</div>
@@ -690,8 +793,105 @@ svg [data-step].vis { transform: none; }
           </div>
         </div>
       </div>
+      <div class="flow-wrap" data-step="4">
+        <div class="flow-lbl">The Motion — How Prospects Become Revenue</div>
+        <svg viewBox="0 0 760 164" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:26vh;display:block">
+          <defs>
+            <marker id="fl-g" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#C8C3BE"/></marker>
+            <marker id="fl-r" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#E8391A"/></marker>
+          </defs>
+
+          <!-- ── INBOUND MOTION header — centered over both columns (0–218) ── -->
+          <text x="109" y="12" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="7" font-weight="700" letter-spacing="2" fill="#9B948E">INBOUND MOTION</text>
+
+          <!-- Col 1: x_dot=6  x_text=14  (rows y=30, 62, 94) -->
+          <circle cx="6"  cy="30"  r="3" fill="#E8391A"/>
+          <text   x="14" y="34"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">BDR Outreach</text>
+
+          <circle cx="6"  cy="62"  r="3" fill="#E8391A"/>
+          <text   x="14" y="66"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">Conference Events</text>
+
+          <circle cx="6"  cy="94"  r="3" fill="#E8391A"/>
+          <text   x="14" y="98"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">Webinars</text>
+
+          <!-- Col 2: x_dot=114  x_text=122  (rows y=30, 62, 94) -->
+          <circle cx="114" cy="30"  r="3" fill="#E8391A"/>
+          <text   x="122" y="34"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">Clinician Champions</text>
+
+          <circle cx="114" cy="62"  r="3" fill="#E8391A"/>
+          <text   x="122" y="66"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">Industry Events</text>
+
+          <circle cx="114" cy="94"  r="3" fill="#E8391A"/>
+          <text   x="122" y="98"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">Agentic AI Outreach</text>
+
+          <!-- 6 dotted converge lines — from farthest-right text edge per column → prospect center y=82 -->
+          <line x1="108" y1="30"  x2="254" y2="74"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="108" y1="62"  x2="254" y2="79"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="108" y1="94"  x2="254" y2="85"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="228" y1="30"  x2="254" y2="76"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="228" y1="62"  x2="254" y2="81"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="228" y1="94"  x2="254" y2="86"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- Prospect node: x=256 y=50 w=106 h=64 → center=(309,82) right=362 -->
+          <rect x="256" y="50" width="106" height="64" rx="6" fill="#1C1A18"/>
+          <text x="309" y="75"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="#6B6560">ABRIDGE 300</text>
+          <text x="309" y="93"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="700" fill="white">PROSPECT</text>
+
+          <!-- ── OUTREACH TACTICS header ── -->
+          <text x="441" y="12" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="7" font-weight="700" letter-spacing="2" fill="#9B948E">OUTREACH TACTICS</text>
+
+          <!-- 6 fan lines: prospect right (x=362, y=82) → tactic centers at x=380 -->
+          <line x1="363" y1="82" x2="379" y2="19"  stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
+          <line x1="363" y1="82" x2="379" y2="40"  stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
+          <line x1="363" y1="82" x2="379" y2="61"  stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
+          <line x1="363" y1="82" x2="379" y2="82"  stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
+          <line x1="363" y1="82" x2="379" y2="103" stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
+          <line x1="363" y1="82" x2="379" y2="124" stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
+
+          <!-- 6 tactic nodes: x=381 w=110 h=18 gap=4, center-x=436 -->
+          <rect x="381" y="10"  width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
+          <text x="436" y="23"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">Peer Referral</text>
+
+          <rect x="381" y="31"  width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
+          <text x="436" y="44"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">White Paper / Evidence</text>
+
+          <rect x="381" y="52"  width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
+          <text x="436" y="65"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">Partner Network</text>
+
+          <rect x="381" y="73"  width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
+          <text x="436" y="86"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">Reference Site Visit</text>
+
+          <rect x="381" y="94"  width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
+          <text x="436" y="107" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">Executive Briefing</text>
+
+          <rect x="381" y="115" width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
+          <text x="436" y="128" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">ROI Model / CFO Case</text>
+
+          <!-- 6 dotted converge lines: opp right (x=491) → pilot left (x=509), center y=82 -->
+          <line x1="492" y1="19"  x2="508" y2="75"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="492" y1="40"  x2="508" y2="78"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="492" y1="61"  x2="508" y2="81"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="492" y1="82"  x2="508" y2="82"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="492" y1="103" x2="508" y2="85"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="492" y1="124" x2="508" y2="88"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- Pilot node: x=510 y=50 w=106 h=64 → center=(563,82) right=616 -->
+          <rect x="510" y="50" width="106" height="64" rx="6" fill="#E8391A"/>
+          <text x="563" y="75"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">DURABLE</text>
+          <text x="563" y="93"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="700" fill="white">PILOT</text>
+
+          <!-- Arrow pilot → revenue -->
+          <line x1="617" y1="82" x2="641" y2="82" stroke="#E8391A" stroke-width="2.5" marker-end="url(#fl-r)"/>
+
+          <!-- Revenue node: x=644 y=50 w=106 h=64 → center=(697,82) -->
+          <rect x="644" y="50" width="106" height="64" rx="6" fill="#1C1A18"/>
+          <text x="697" y="75"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="rgba(255,255,255,0.5)">NEW</text>
+          <text x="697" y="93"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="700" letter-spacing="0.5" fill="#E8391A">REVENUE</text>
+        </svg>
+      </div>
     </div>
-    <div class="proof-bar" data-step="4">
+
+    <div class="proof-bar" data-step="5">
       95%+ retention. 150+ health systems. 30x adoption at Duke. The product wins. Now we go get 70 more.
     </div>
     <div class="bb"><span>Abridge</span><span>Confidential &amp; Proprietary &nbsp;&nbsp; 6</span></div>
