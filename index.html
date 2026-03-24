@@ -218,7 +218,7 @@ svg [data-step].vis { transform: none; }
 .col-ey  { font-family: var(--l); font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
 .math-row { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--border); }
 .math-row:first-of-type { border-top: 1px solid var(--border); }
-.mr-val  { font-family: var(--r); font-size: 26px; font-weight: 700; color: var(--red); min-width: 90px; line-height: 1; flex-shrink: 0; }
+.mr-val  { font-family: var(--r); font-size: 26px; font-weight: 700; color: var(--red); min-width: 180px; width: 180px; text-align: center; line-height: 1; flex-shrink: 0; }
 .mr-lbl  { font-family: var(--l); font-size: 12px; color: var(--muted); line-height: 1.45; }
 .es-item { display: flex; gap: 14px; align-items: flex-start; padding: 11px 0; border-bottom: 1px solid var(--border); }
 .es-item:first-of-type { border-top: 1px solid var(--border); }
@@ -795,98 +795,73 @@ svg [data-step].vis { transform: none; }
       </div>
       <div class="flow-wrap" data-step="4">
         <div class="flow-lbl">The Motion — How Prospects Become Revenue</div>
-        <svg viewBox="0 0 760 164" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:26vh;display:block">
+        <svg viewBox="0 0 800 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:24vh;display:block">
           <defs>
             <marker id="fl-g" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#C8C3BE"/></marker>
             <marker id="fl-r" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#E8391A"/></marker>
           </defs>
 
-          <!-- ── INBOUND MOTION header — centered over both columns (0–218) ── -->
-          <text x="109" y="12" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="7" font-weight="700" letter-spacing="2" fill="#9B948E">INBOUND MOTION</text>
+          <!-- ── FIELD PIPELINE FOCUS — 3 cols × 3 rows, each col centered ── -->
+          <text x="147" y="11" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="7" font-weight="700" letter-spacing="2" fill="#9B948E">FIELD PIPELINE FOCUS</text>
 
-          <!-- Col 1: x_dot=6  x_text=14  (rows y=30, 62, 94) -->
-          <circle cx="6"  cy="30"  r="3" fill="#E8391A"/>
-          <text   x="14" y="34"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">BDR Outreach</text>
+          <!-- Col 1: centered at x=49, no dots -->
+          <text x="49" y="28" text-anchor="middle" font-family="'Lato',sans-serif" font-size="9" fill="#6B6560">BDR Outreach</text>
+          <text x="49" y="52" text-anchor="middle" font-family="'Lato',sans-serif" font-size="9" fill="#6B6560">Conference Events</text>
+          <text x="49" y="76" text-anchor="middle" font-family="'Lato',sans-serif" font-size="9" fill="#6B6560">Webinars</text>
 
-          <circle cx="6"  cy="62"  r="3" fill="#E8391A"/>
-          <text   x="14" y="66"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">Conference Events</text>
+          <!-- Col 2: centered at x=147, no dots -->
+          <text x="147" y="28" text-anchor="middle" font-family="'Lato',sans-serif" font-size="9" fill="#6B6560">Clinician Champions</text>
+          <text x="147" y="52" text-anchor="middle" font-family="'Lato',sans-serif" font-size="9" fill="#6B6560">Industry Events</text>
+          <text x="147" y="76" text-anchor="middle" font-family="'Lato',sans-serif" font-size="9" fill="#6B6560">Agentic AI Outreach</text>
 
-          <circle cx="6"  cy="94"  r="3" fill="#E8391A"/>
-          <text   x="14" y="98"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">Webinars</text>
+          <!-- Col 3: centered at x=245, no dots -->
+          <text x="245" y="28" text-anchor="middle" font-family="'Lato',sans-serif" font-size="9" fill="#6B6560">Referrals</text>
+          <text x="245" y="52" text-anchor="middle" font-family="'Lato',sans-serif" font-size="9" fill="#6B6560">Partner Network</text>
+          <text x="245" y="76" text-anchor="middle" font-family="'Lato',sans-serif" font-size="9" fill="#6B6560">White Paper</text>
 
-          <!-- Col 2: x_dot=114  x_text=122  (rows y=30, 62, 94) -->
-          <circle cx="114" cy="30"  r="3" fill="#E8391A"/>
-          <text   x="122" y="34"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">Clinician Champions</text>
+          <!-- Red chevron: inbound inputs → prospect -->
+          <text x="300" y="57" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="20" font-weight="900" fill="#E8391A">›</text>
 
-          <circle cx="114" cy="62"  r="3" fill="#E8391A"/>
-          <text   x="122" y="66"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">Industry Events</text>
+          <!-- Prospect: x=313 y=22 w=104 h=58 → center=(365,51) right=417 -->
+          <rect x="313" y="22" width="104" height="58" rx="6" fill="#1C1A18"/>
+          <text x="365" y="44" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="7.5" font-weight="700" letter-spacing="1.5" fill="#E8391A">ABRIDGE 300</text>
+          <text x="365" y="61" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="700" fill="white">PROSPECT</text>
 
-          <circle cx="114" cy="94"  r="3" fill="#E8391A"/>
-          <text   x="122" y="98"  font-family="'Lato',sans-serif" font-size="9.5" fill="#6B6560">Agentic AI Outreach</text>
+          <!-- ── OPPORTUNITY TYPE header ── -->
+          <text x="490" y="11" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="7" font-weight="700" letter-spacing="2" fill="#9B948E">OPPORTUNITY TYPE</text>
 
-          <!-- 6 dotted converge lines — from farthest-right text edge per column → prospect center y=82 -->
-          <line x1="108" y1="30"  x2="254" y2="74"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-          <line x1="108" y1="62"  x2="254" y2="79"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-          <line x1="108" y1="94"  x2="254" y2="85"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-          <line x1="228" y1="30"  x2="254" y2="76"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-          <line x1="228" y1="62"  x2="254" y2="81"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-          <line x1="228" y1="94"  x2="254" y2="86"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <!-- 3 fan lines: prospect right (x=417, y=51) → opp centers y=31,51,71 -->
+          <line x1="418" y1="51" x2="434" y2="31" stroke="#E8391A" stroke-width="1.5" marker-end="url(#fl-r)"/>
+          <line x1="418" y1="51" x2="434" y2="51" stroke="#E8391A" stroke-width="1.5" marker-end="url(#fl-r)"/>
+          <line x1="418" y1="51" x2="434" y2="71" stroke="#E8391A" stroke-width="1.5" marker-end="url(#fl-r)"/>
 
-          <!-- Prospect node: x=256 y=50 w=106 h=64 → center=(309,82) right=362 -->
-          <rect x="256" y="50" width="106" height="64" rx="6" fill="#1C1A18"/>
-          <text x="309" y="75"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="#6B6560">ABRIDGE 300</text>
-          <text x="309" y="93"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="700" fill="white">PROSPECT</text>
+          <!-- 3 opp nodes: x=436 w=108 h=24, centers y=31,51,71 -->
+          <rect x="436" y="19" width="108" height="24" rx="4" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1.5"/>
+          <text x="490" y="35" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10.5" font-weight="600" fill="#1C1A18">Clinical Notes</text>
 
-          <!-- ── OUTREACH TACTICS header ── -->
-          <text x="441" y="12" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="7" font-weight="700" letter-spacing="2" fill="#9B948E">OUTREACH TACTICS</text>
+          <rect x="436" y="39" width="108" height="24" rx="4" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1.5"/>
+          <text x="490" y="55" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10.5" font-weight="600" fill="#1C1A18">Rev Cycle</text>
 
-          <!-- 6 fan lines: prospect right (x=362, y=82) → tactic centers at x=380 -->
-          <line x1="363" y1="82" x2="379" y2="19"  stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
-          <line x1="363" y1="82" x2="379" y2="40"  stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
-          <line x1="363" y1="82" x2="379" y2="61"  stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
-          <line x1="363" y1="82" x2="379" y2="82"  stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
-          <line x1="363" y1="82" x2="379" y2="103" stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
-          <line x1="363" y1="82" x2="379" y2="124" stroke="#E8391A" stroke-width="1.2" marker-end="url(#fl-r)"/>
+          <rect x="436" y="59" width="108" height="24" rx="4" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1.5"/>
+          <text x="490" y="75" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10.5" font-weight="600" fill="#1C1A18">Nursing</text>
 
-          <!-- 6 tactic nodes: x=381 w=110 h=18 gap=4, center-x=436 -->
-          <rect x="381" y="10"  width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
-          <text x="436" y="23"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">Peer Referral</text>
+          <!-- 3 dotted converge lines: opp right (x=544) → pilot left (x=560) -->
+          <line x1="545" y1="31" x2="559" y2="46" stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="545" y1="51" x2="559" y2="51" stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="545" y1="71" x2="559" y2="56" stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
 
-          <rect x="381" y="31"  width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
-          <text x="436" y="44"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">White Paper / Evidence</text>
-
-          <rect x="381" y="52"  width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
-          <text x="436" y="65"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">Partner Network</text>
-
-          <rect x="381" y="73"  width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
-          <text x="436" y="86"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">Reference Site Visit</text>
-
-          <rect x="381" y="94"  width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
-          <text x="436" y="107" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">Executive Briefing</text>
-
-          <rect x="381" y="115" width="110" height="18" rx="3" fill="#EDEAE6" stroke="#D8D3CE" stroke-width="1"/>
-          <text x="436" y="128" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600" fill="#1C1A18">ROI Model / CFO Case</text>
-
-          <!-- 6 dotted converge lines: opp right (x=491) → pilot left (x=509), center y=82 -->
-          <line x1="492" y1="19"  x2="508" y2="75"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-          <line x1="492" y1="40"  x2="508" y2="78"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-          <line x1="492" y1="61"  x2="508" y2="81"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-          <line x1="492" y1="82"  x2="508" y2="82"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-          <line x1="492" y1="103" x2="508" y2="85"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-          <line x1="492" y1="124" x2="508" y2="88"  stroke="#C8C3BE" stroke-width="1" stroke-dasharray="3,3"/>
-
-          <!-- Pilot node: x=510 y=50 w=106 h=64 → center=(563,82) right=616 -->
-          <rect x="510" y="50" width="106" height="64" rx="6" fill="#E8391A"/>
-          <text x="563" y="75"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">DURABLE</text>
-          <text x="563" y="93"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="700" fill="white">PILOT</text>
+          <!-- Pilot: x=561 y=22 w=104 h=58 → center=(613,51) right=665 -->
+          <rect x="561" y="22" width="104" height="58" rx="6" fill="#E8391A"/>
+          <text x="613" y="44" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="7.5" font-weight="700" letter-spacing="1.5" fill="rgba(255,255,255,0.75)">DURABLE</text>
+          <text x="613" y="61" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="700" fill="white">PILOT</text>
 
           <!-- Arrow pilot → revenue -->
-          <line x1="617" y1="82" x2="641" y2="82" stroke="#E8391A" stroke-width="2.5" marker-end="url(#fl-r)"/>
+          <line x1="666" y1="51" x2="686" y2="51" stroke="#E8391A" stroke-width="2.5" marker-end="url(#fl-r)"/>
 
-          <!-- Revenue node: x=644 y=50 w=106 h=64 → center=(697,82) -->
-          <rect x="644" y="50" width="106" height="64" rx="6" fill="#1C1A18"/>
-          <text x="697" y="75"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="rgba(255,255,255,0.5)">NEW</text>
-          <text x="697" y="93"  text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="700" letter-spacing="0.5" fill="#E8391A">REVENUE</text>
+          <!-- Revenue: x=688 y=22 w=104 h=58 → center=(740,51) -->
+          <rect x="688" y="22" width="104" height="58" rx="6" fill="#1C1A18"/>
+          <text x="740" y="44" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="7.5" font-weight="700" letter-spacing="1.5" fill="rgba(255,255,255,0.5)">NEW</text>
+          <text x="740" y="61" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="700" letter-spacing="0.5" fill="#E8391A">REVENUE</text>
         </svg>
       </div>
     </div>
