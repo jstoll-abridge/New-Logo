@@ -160,7 +160,7 @@ body { font-family: var(--l); background: var(--bg); color: var(--black); overfl
 .ctx p { font-family: var(--l); font-size: 12px; color: var(--dark); line-height: 1.6; }
 .ctx strong { color: var(--black); font-weight: 700; }
 
-.diag { flex-shrink: 0; }
+.diag { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .diag-head { font-family: var(--l); font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
 .diag-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
 .diag-list li { display: flex; gap: 9px; align-items: flex-start; padding: 7px 0; border-bottom: 1px solid var(--border); }
@@ -178,10 +178,10 @@ svg [data-step].vis { transform: none; }
 /* Layout */
 .fw-layout { display: flex; gap: 36px; flex: 1; min-height: 0; align-items: stretch; }
 .fw-left   { flex-shrink: 0; width: 46%; display: flex; align-items: center; justify-content: center; }
-.fw-right  { flex: 1; display: flex; flex-direction: column; gap: 7px; min-height: 0; overflow: hidden; justify-content: center; }
+.fw-right  { flex: 1; display: flex; flex-direction: column; gap: 7px; min-height: 0; overflow: hidden; justify-content: flex-start; }
 
 /* Cards — stacks as each data-step fires; all stay on screen */
-.fw-panel { background: var(--card); border-top: 3px solid var(--red); padding: 10px 15px 10px; display: flex; flex-direction: column; flex-shrink: 0; }
+.fw-panel { background: var(--card); border-top: 3px solid var(--red); padding: 8px 15px 8px; display: flex; flex-direction: column; flex-shrink: 0; }
 .fw-panel-num   { font-family: var(--r); font-size: 9px; font-weight: 700; color: var(--red); letter-spacing: 1px; margin-bottom: 2px; flex-shrink: 0; }
 .fw-panel-title { font-family: var(--r); font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 5px; line-height: 1.2; flex-shrink: 0; }
 .fw-panel-rule  { width: 100%; height: 1px; background: var(--border); margin-bottom: 5px; flex-shrink: 0; }
@@ -216,16 +216,16 @@ svg [data-step].vis { transform: none; }
 .goal-h .red { color: var(--red); }
 .goal-body { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; min-height: 0; overflow: hidden; }
 .col-ey  { font-family: var(--l); font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
-.math-row { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.math-row { display: flex; align-items: center; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--border); }
 .math-row:first-of-type { border-top: 1px solid var(--border); }
-.mr-val  { font-family: var(--r); font-size: 26px; font-weight: 700; color: var(--red); min-width: 180px; width: 180px; text-align: center; line-height: 1; flex-shrink: 0; }
-.mr-lbl  { font-family: var(--l); font-size: 12px; color: var(--muted); line-height: 1.45; }
+.mr-val  { font-family: var(--r); font-size: 30px; font-weight: 700; color: var(--red); min-width: 160px; width: 160px; text-align: right; line-height: 1; flex-shrink: 0; }
+.mr-lbl  { font-family: var(--l); font-size: 12.5px; color: var(--muted); line-height: 1.5; }
 .es-item { display: flex; gap: 14px; align-items: flex-start; padding: 11px 0; border-bottom: 1px solid var(--border); }
 .es-item:first-of-type { border-top: 1px solid var(--border); }
 .es-dot  { width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0; margin-top: 5px; }
 .es-t    { font-family: var(--r); font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 3px; }
 .es-b    { font-family: var(--l); font-size: 11px; color: var(--muted); line-height: 1.6; }
-.proof-bar { background: var(--red); color: var(--white); padding: 11px 56px; font-family: var(--l); font-size: 12px; font-style: italic; letter-spacing: .4px; flex-shrink: 0; margin: 0 -56px -16px; }
+.proof-bar { background: var(--red); color: var(--white); padding: 11px 56px 11px 72px; font-family: var(--l); font-size: 12px; font-style: italic; letter-spacing: .4px; flex-shrink: 0; margin: 0 -56px -16px; }
 .flow-wrap  { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); flex-shrink: 0; }
 .flow-lbl   { font-family: var(--r); font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
 </style>
@@ -323,12 +323,11 @@ svg [data-step].vis { transform: none; }
       <div class="diag" data-step="4">
         <div class="diag-head">A300 win rates — FY25 trend &nbsp;<span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:10px;color:#8A837C">Source: Q4-25 Closed Lost Report</span></div>
 
-        <div style="display:flex;gap:24px;margin-top:10px;align-items:flex-end;">
+        <div style="display:flex;gap:24px;margin-top:20px;align-items:flex-end;flex:1;min-height:0;">
 
           <!-- Chart 1: Overall Initial Win Rate Trend -->
           <div style="flex:1;min-width:0;">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8A837C;margin-bottom:5px;text-align:right;">Initial Opp Win Rate</div>
-            <svg viewBox="0 0 260 148" width="100%" style="display:block;max-height:29vh">
+            <svg viewBox="0 0 260 148" width="100%" style="display:block;max-height:40vh">
               <!-- Grid -->
               <line x1="32" y1="12" x2="255" y2="12" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
               <line x1="32" y1="40" x2="255" y2="40" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
@@ -364,8 +363,7 @@ svg [data-step].vis { transform: none; }
 
           <!-- Chart 2: Incumbent vs Greenfield Win Rate -->
           <div style="flex:1.3;min-width:0;">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8A837C;margin-bottom:5px;text-align:right;">Win Rate by Competition Status</div>
-            <svg viewBox="0 0 310 160" width="100%" style="display:block;max-height:29vh">
+            <svg viewBox="0 0 310 160" width="100%" style="display:block;max-height:40vh">
               <!-- Grid -->
               <line x1="32" y1="12" x2="305" y2="12" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
               <line x1="32" y1="40" x2="305" y2="40" stroke="#E0DAD2" stroke-width="0.5" stroke-dasharray="3 3"/>
@@ -444,44 +442,41 @@ svg [data-step].vis { transform: none; }
 
         <div class="card" data-step="2">
           <div class="c-num">01</div>
-          <div class="c-title">Microsoft + Epic Are In</div>
-          <div class="c-lead">The ambient AI category is now competitive. Every Abridge 300 prospect is also hearing a pitch from Epic Cheers or Microsoft DAX.</div>
+          <div class="c-title">Epic + Microsoft Are In</div>
+          <div class="c-lead">Every Abridge 300 prospect is also hearing a pitch from Epic or Microsoft DAX. The category is no longer ours alone.</div>
           <div class="c-rule"></div>
           <ul class="c-list">
-            <li><span class="arr">→</span><span>Decision timelines stretching <strong>30–90+ days</strong> as buyers run parallel evaluations before committing</span></li>
-            <li><span class="arr">→</span><span>Previously uncontested greenfield categories now require <strong>head-to-head proof</strong> at the CMIO, CNO, and CFO level</span></li>
-            <li><span class="arr">→</span><span>Prospects are pausing existing conversations to <strong>"see what Epic includes"</strong> in upcoming contract renewals</span></li>
-            <li><span class="arr">→</span><span>Long sales cycles mean our <strong>pipeline velocity has slowed</strong> even when Abridge is the preferred solution</span></li>
+            <li><span class="arr">→</span><span>Buyers running <strong>parallel evaluations</strong> — decisions stretching 30–90+ days as they wait to see what Epic bundles</span></li>
+            <li><span class="arr">→</span><span>Previously greenfield deals now require <strong>head-to-head proof</strong> at the CMIO, CNO, and CFO level</span></li>
+            <li><span class="arr">→</span><span>Prospects pausing live conversations to <strong>"see what Epic includes"</strong> at contract renewal</span></li>
           </ul>
-          <div class="c-callout"><p>Every deal now has a competitive counter-narrative to navigate. Speed and proof at the right level is the response.</p></div>
+          <div class="c-callout"><p>Every deal now has a counter-narrative. Speed and proof at the right level is the only response.</p></div>
         </div>
 
         <div class="card" data-step="3">
           <div class="c-num">02</div>
-          <div class="c-title">Incumbents Are Stickier</div>
-          <div class="c-lead">The "their notes are worse" argument is fading. Displacement requires a fundamentally different playbook than a year ago.</div>
+          <div class="c-title">The Pilot Is the Conversion</div>
+          <div class="c-lead">Ambient AI is no longer experimental. Displacement deals go directly to enterprise scale — you're not replacing a tool, you're taking out a platform.</div>
           <div class="c-rule"></div>
           <ul class="c-list">
-            <li><span class="arr">→</span><span>Note quality across all incumbent vendors has <strong>meaningfully improved</strong> — the gap is narrowing on surface-level demos</span></li>
-            <li><span class="arr">→</span><span>Displacement now requires buy-in from <strong>CMIO, CNO, CDI, and Finance</strong> — not just clinician satisfaction</span></li>
-            <li><span class="arr">→</span><span>Multi-year contracts and <strong>deep Epic integration complexity</strong> raise switching costs and extend evaluation timelines</span></li>
-            <li><span class="arr">→</span><span>Competitors are building <strong>customer success moats</strong> — making it harder to move an account that's "good enough"</span></li>
+            <li><span class="arr">→</span><span><strong>Baylor Scott &amp; White</strong> displaced Microsoft DAX at <strong>4,000 users</strong>. <strong>Northwestern</strong> started at <strong>2,000</strong>. The scope of every win has grown.</span></li>
+            <li><span class="arr">→</span><span>Displacement requires <strong>CMIO, CNO, CDI, and Finance</strong> buy-in — clinician satisfaction alone no longer closes the deal</span></li>
+            <li><span class="arr">→</span><span>No slow ramp, no small test — <strong>the pilot is the conversion.</strong> Proof architecture must match the stakes.</span></li>
           </ul>
-          <div class="c-callout"><p>Surface-level demos no longer close displacement deals. We need a deeper proof architecture with the right buyer in the room.</p></div>
+          <div class="c-callout"><p>This is a displacement environment, not a land grab. The opportunity is bigger — and so is the bar to win it.</p></div>
         </div>
 
         <div class="card" data-step="4">
           <div class="c-num">03</div>
-          <div class="c-title">Messaging Refresh</div>
-          <div class="c-lead">We built the category on clinician burnout. Every competitor now claims the same. The new economic buyer is the CFO — and we have the proof to win that conversation.</div>
+          <div class="c-title">The CFO Is the New Buyer</div>
+          <div class="c-lead">Clinician burnout got us here. Every competitor claims it now. The business case has moved to Finance.</div>
           <div class="c-rule"></div>
           <ul class="c-list">
-            <li><span class="arr">→</span><span><strong>11–14% wRVU uplift</strong> — validated at Corewell Health. Converts physician capacity into direct revenue.</span></li>
-            <li><span class="arr">→</span><span><strong>14% HCC capture improvement</strong> — validated at Riverside Health. Drives risk-adjusted revenue at scale.</span></li>
-            <li><span class="arr">→</span><span><strong>$500K–$1M in avoided physician turnover</strong> per departure — the retention argument is now a financial argument.</span></li>
-            <li><span class="arr">→</span><span>95%+ monthly retention and <strong>30x adoption at Duke in 4 months</strong> — proof the product wins where others stall.</span></li>
+            <li><span class="arr">→</span><span>Recaptured physician time = <strong>billable revenue</strong> — not a wellness benefit. CFO in the room at meeting one.</span></li>
+            <li><span class="arr">→</span><span><strong>Real-time risk adjustment, stronger MA documentation, reduced prior auth</strong> — a durable rev cycle offer at point of care</span></li>
+            <li><span class="arr">→</span><span>Every system now has an AI business case to defend — <strong>ours must be the sharpest</strong></span></li>
           </ul>
-          <div class="c-callout"><p>Stop leading with documentation. Start leading with revenue. The proof exists — the pitch must evolve to match it.</p></div>
+          <div class="c-callout"><p>Stop leading with documentation. Start leading with revenue. The CFO story needs to be built — now.</p></div>
         </div>
 
       </div>
@@ -501,8 +496,8 @@ svg [data-step].vis { transform: none; }
         </div>
 
         <div class="hl-item">
-          <div class="hl-pub">McKinsey &amp; Company &nbsp;·&nbsp; 2026</div>
-          <div class="hl-hed">"Ambient Scribing at a Crossroads: What Comes Next?"</div>
+          <div class="hl-pub">Becker's Health IT &nbsp;·&nbsp; Feb 2026</div>
+          <div class="hl-hed">"Epic's Ambient AI Push Puts Standalone Vendors on Notice"</div>
         </div>
 
         <div class="hl-item">
@@ -510,6 +505,10 @@ svg [data-step].vis { transform: none; }
           <div class="hl-hed">"Microsoft, Epic, and the Race to Own the Exam Room: The Ambient AI Land Grab Is On"</div>
         </div>
 
+      </div>
+
+      <div style="margin-top:12px;padding:9px 16px;background:#1C1A18;border-left:3px solid #E8391A;font-family:'Lato',sans-serif;font-size:11px;color:#C4BDB3;line-height:1.55;" data-step="5">
+        <strong style="color:#E8391A;font-family:'Space Grotesk',sans-serif;">Our read:</strong> This isn't a land grab. It's a <strong style="color:white;">displacement environment.</strong> The market has matured — buyers treat ambient AI as a proven enterprise platform, not a pilot. That means the deals are bigger, the proof bar is higher, and the window to move is now.
       </div>
 
     </div>
@@ -595,12 +594,11 @@ svg [data-step].vis { transform: none; }
             <div class="fw-panel-num">01 — MARKETING</div>
             <div class="fw-panel-title">Influence the Market</div>
             <div class="fw-panel-rule"></div>
-            <div class="fw-panel-owner">Owner: <strong>Guru + Marketing Team</strong></div>
             <ul class="c-list">
-              <li><span class="arr">→</span><span>Reframe Abridge as the <strong>revenue generation engine</strong> inside a health system — not a documentation tool</span></li>
-              <li><span class="arr">→</span><span>Publish proof-first content: <strong>Corewell wRVU study, Riverside HCC data, Duke 30x adoption</strong> story front and center</span></li>
-              <li><span class="arr">→</span><span><strong>150+ health systems</strong> — category leadership and scale no competitor can match today</span></li>
-              <li><span class="arr">→</span><span>Make Abridge the <strong>obvious consideration</strong> before a buyer ever enters a formal sales process</span></li>
+              <li><span class="arr">→</span><span>Shift from brand awareness to <strong>targeted displacement demand gen</strong> — every campaign aimed at cracking DAX-heavy accounts</span></li>
+              <li><span class="arr">→</span><span>Create <strong>account-specific content</strong> targeting DAX-heavy accounts — CFO ROI briefs, CMIO peer evidence, CNO workflow proof tailored to each persona</span></li>
+              <li><span class="arr">→</span><span>Build a <strong>white space engagement scorecard</strong> — track event attendance, executive touchpoints, and investor connections per account; shift ownership to commercial when the score hits threshold</span></li>
+              <li><span class="arr">→</span><span>Marketing <strong>owns lead generation</strong> into white space accounts — accountability transfers to commercial when accounts are warm, not before</span></li>
             </ul>
           </div>
 
@@ -608,12 +606,11 @@ svg [data-step].vis { transform: none; }
             <div class="fw-panel-num">02 — PARTNERSHIPS</div>
             <div class="fw-panel-title">Customers &amp; Ecosystem</div>
             <div class="fw-panel-rule"></div>
-            <div class="fw-panel-owner">Owner: <strong>Reba + Sarah Green / Partner Success</strong></div>
             <ul class="c-list">
-              <li><span class="arr">→</span><span><strong>95%+ monthly retention</strong> turns every customer into a warm, credible reference in their peer network</span></li>
-              <li><span class="arr">→</span><span>Activate named CMIOs — <strong>Dr. Shah (UChicago), Dr. Carracino (Lee Health)</strong> — as field-facing advocates</span></li>
-              <li><span class="arr">→</span><span>Champion-led <strong>peer intro calls</strong> convert 3× better than cold BDR outreach into white space accounts</span></li>
-              <li><span class="arr">→</span><span>Every expansion becomes a <strong>case study and reference anchor</strong> for the next prospect segment</span></li>
+              <li><span class="arr">→</span><span>Build a <strong>programmatic referral motion</strong> — incentivize clinician champions (CMIOs, CNOs) to open doors into white space accounts; peer intros convert 3× better than cold outreach</span></li>
+              <li><span class="arr">→</span><span><strong>Formalize the investor/VC network</strong> — structured process to activate connections at Andreessen Horowitz and others; move beyond ad-hoc asks</span></li>
+              <li><span class="arr">→</span><span><strong>AWS marketplace is the priority ecosystem play</strong> — moving to marketplace 10Xs sphere of influence; their sales teams are incentivized and customers get kickbacks</span></li>
+              <li><span class="arr">→</span><span>Engage <strong>Accenture and Deloitte</strong> as revenue cycle transformation influencers — they're already inside our target accounts consulting on the exact problems Abridge solves</span></li>
             </ul>
           </div>
 
@@ -621,12 +618,11 @@ svg [data-step].vis { transform: none; }
             <div class="fw-panel-num">03 — FIELD SALES</div>
             <div class="fw-panel-title">Win in the Field</div>
             <div class="fw-panel-rule"></div>
-            <div class="fw-panel-owner">Owner: <strong>Aamir + Enterprise Sales + BDR Army</strong></div>
             <ul class="c-list">
               <li><span class="arr">→</span><span>Lead every deal with the <strong>CFO conversation</strong> — ROI model in hand at first executive meeting, not after</span></li>
-              <li><span class="arr">→</span><span><strong>One BDR per segment</strong> (Strategic, Enterprise, National) embedded in territory, owning Abridge 300 outreach</span></li>
+              <li><span class="arr">→</span><span><strong>One Senior BDR / Market Development Lead per segment</strong> (Strategic, Enterprise, National) — AI-enabled to do the work of 10, owning Abridge 300 (335) outreach exclusively</span></li>
               <li><span class="arr">→</span><span>Every Abridge 300 account requires an <strong>active Salesforce opportunity</strong> with a defined next step — no exceptions</span></li>
-              <li><span class="arr">→</span><span><strong>New Logo Thursday</strong> cadence: weekly review, rep-level accountability, no dead opportunities survive the week</span></li>
+              <li><span class="arr">→</span><span><strong>Pipeline Day</strong> cadence: weekly review, rep-level accountability, no dead opportunities survive the week</span></li>
             </ul>
           </div>
 
@@ -694,12 +690,12 @@ svg [data-step].vis { transform: none; }
 
         <div class="tc" data-step="3">
           <div class="tc-num">04</div>
-          <div class="tc-title">Dedicated BDR Coverage</div>
-          <div class="tc-tag">Separate prospectors from account management. One BDR per segment.</div>
+          <div class="tc-title">Senior BDR / Market Development</div>
+          <div class="tc-tag">Separate prospectors from account management. One Senior BDR per segment — AI-enabled to do the work of 10.</div>
           <div class="tc-rule"></div>
           <ul class="tc-list">
             <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>One BDR per segment</strong> — Strategic, Enterprise, National — embedded in territory, not pooled</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl">BDRs <strong>100% dedicated</strong> to Abridge 300 prospecting — AEs are support closers only</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">BDRs <strong>100% dedicated</strong> to Abridge 300 (335) prospecting — AEs are support closers only</span></li>
             <li><span class="tc-arr">→</span><span class="tc-lbl">BDR KPIs: <strong>qualified meetings set within the 300 list</strong>, pilots kicked off incentivized, anchored by a dedicated <strong>Pipeline Day</strong> — one day per week reserved exclusively for prospecting and intentional opportunity creation</span></li>
           </ul>
         </div>
@@ -722,8 +718,8 @@ svg [data-step].vis { transform: none; }
           <div class="tc-tag">No opp, no coverage. Pipeline discipline is a team standard, not rep choice.</div>
           <div class="tc-rule"></div>
           <ul class="tc-list">
-            <li><span class="tc-arr">→</span><span class="tc-lbl">Every Abridge 300 white space account = <strong>mandatory active Salesforce opportunity</strong> by end of Q2</span></li>
-            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>New Logo Thursday</strong>: weekly cadence — every open opp reviewed, every stuck deal unblocked that same week</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl">Every Abridge 300 (335) white space account = <strong>mandatory active Salesforce opportunity</strong> by end of Q2</span></li>
+            <li><span class="tc-arr">→</span><span class="tc-lbl"><strong>Pipeline Day</strong>: weekly cadence — every open opp reviewed, every stuck deal unblocked that same week</span></li>
             <li><span class="tc-arr">→</span><span class="tc-lbl">Every stage requires a <strong>documented next step and committed date</strong> — manager-enforced, not optional hygiene</span></li>
           </ul>
         </div>
@@ -745,26 +741,26 @@ svg [data-step].vis { transform: none; }
     <div class="sc" style="padding-bottom:0">
       <div class="ey"     data-step="0">The Goal</div>
       <div class="rr"     data-step="0"></div>
-      <div class="goal-h" data-step="1">Add <span class="red">70</span> new Abridge 300<br>accounts by year end.</div>
+      <div class="goal-h" data-step="1">Add <span class="red">70</span> new Abridge 300 (335)<br>accounts by year end.</div>
 
       <div class="goal-body">
         <div data-step="2">
           <div class="col-ey">The Math — Working Backwards from 70</div>
           <div class="math-row">
-            <div class="mr-val">~240</div>
-            <div class="mr-lbl">Total white space accounts in the Abridge 300 — the entire addressable universe for new logos this year</div>
+            <div class="mr-val">148</div>
+            <div class="mr-lbl">Abridge 335 accounts with no open opportunity — <strong style="color:#2A2620">44% of the universe</strong> and our entire addressable pool for new logos this year</div>
           </div>
           <div class="math-row">
-            <div class="mr-val">12+</div>
-            <div class="mr-lbl">Average touches required before a first substantive response — in healthcare enterprise outreach</div>
+            <div class="mr-val">65</div>
+            <div class="mr-lbl">Open opportunities active today — <strong style="color:#2A2620">not enough pipeline at any win rate</strong> to close 70 new logos without building from white space</div>
           </div>
           <div class="math-row">
-            <div class="mr-val">~3,000+</div>
-            <div class="mr-lbl">Total touches needed across the list to reach 70 accounts — requires a BDR army running structured sequences</div>
+            <div class="mr-val">~1,800+</div>
+            <div class="mr-lbl">Total touches to work through 148 white space accounts at 12+ per account — <strong style="color:#2A2620">an org-wide number</strong>: BDRs, marketing, champions, and AI-enabled outreach all count</div>
           </div>
           <div class="math-row">
-            <div class="mr-val">~210</div>
-            <div class="mr-lbl">Qualified opportunities required to close 70 at a 3:1 ratio — pipeline must be built now to close by Q4</div>
+            <div class="mr-val">~270</div>
+            <div class="mr-lbl">Qualified opportunities needed at <strong style="color:#2A2620">current 26% win rate to close 70</strong> — the pipeline must come from white space, and it must be built now to close by Q4</div>
           </div>
         </div>
 
@@ -774,7 +770,7 @@ svg [data-step].vis { transform: none; }
             <div class="es-dot"></div>
             <div>
               <div class="es-t">Active opp in every white space account by Q3</div>
-              <div class="es-b">Every Abridge 300 white space account has an active, qualified Salesforce opportunity with a defined next step and an owner. No account is uncovered.</div>
+              <div class="es-b">Every Abridge 300 (335) white space account has an active, qualified Salesforce opportunity with a defined next step and an owner. No account is uncovered.</div>
             </div>
           </div>
           <div class="es-item">
@@ -788,14 +784,14 @@ svg [data-step].vis { transform: none; }
             <div class="es-dot"></div>
             <div>
               <div class="es-t">A measured pursuit, not ad-hoc activity</div>
-              <div class="es-b">Rep-level accountability enforced weekly at New Logo Thursday. Salesforce-tracked at every stage. No orphaned contacts, no stale pipeline, no coverage gaps.</div>
+              <div class="es-b">Rep-level accountability enforced weekly at Pipeline Day. Salesforce-tracked at every stage. No orphaned contacts, no stale pipeline, no coverage gaps.</div>
             </div>
           </div>
         </div>
       </div>
       <div class="flow-wrap" data-step="4">
         <div class="flow-lbl">The Motion — How Prospects Become Revenue</div>
-        <svg viewBox="0 0 800 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:24vh;display:block">
+        <svg viewBox="0 0 800 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:30vh;display:block">
           <defs>
             <marker id="fl-g" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#C8C3BE"/></marker>
             <marker id="fl-r" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#E8391A"/></marker>
